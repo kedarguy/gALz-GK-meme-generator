@@ -555,6 +555,15 @@ main {
   flex-direction: column;
   width: 100%;
   min-height: 400px; }
+  .edit-container .text-input {
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 3px; }
+    .edit-container .text-input input {
+      width: 100%; }
   .edit-container canvas {
     width: 100%;
     min-height: 300px;

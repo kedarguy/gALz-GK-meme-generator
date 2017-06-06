@@ -8,51 +8,54 @@
   <link rel="stylesheet" href="dist/style.css">
 </head>
 
- <body onload="init()">
-    <div class="container">
-      <nav>
-        <div class="logo"><img src="assets/icons/logo.png" alt="logo"></div>
-        <img 
-        <div class="link-list">
-          <ul>
-           <li><a href="">Portfolio</a></li>
-           <li><a href="">About</a></li>
-           <li><a href="">Blog</a></li>
-           <li><a href="">Get In Touch</a></li>
-          </ul>
-        </div>
-      </nav>
+<body onload="init()">
+  <div class="container">
+    <nav>
+      <div class="logo"><img src="assets/icons/logo.png" alt="logo"></div>
+      <img <div class="link-list">
+      <ul>
+        <li><a href="">Portfolio</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">Get In Touch</a></li>
+      </ul>
+  </div>
+  </nav>
 
-      <main>
-        <div class="imgs-container">
-  
-        </div>
-
-        <div class="edit-container">
-          <canvas id="memeCanvas" ></canvas>
-          <button onclick="saveImage()">Save</button>
-        </div>
-      </main>
-
-      <section class="about-us">
-        <div class="inner-about-us">
-         <h1>About Us</h1>
-
-        </div>
-        
-      </section>
-
-      <section class="contact-info">
-        <div class="inner-contact-info">
-          <h4>coming soon</h4>
-        </div>
-        
-      </section>
-
+  <main>
+    <div class="imgs-container">
 
     </div>
 
-    <script src="js/main.js"></script>
- </body>
+    <div class="edit-container">
+      <canvas id="memeCanvas"></canvas>
+      <button onclick="saveImage()">Save</button>
+
+      <div class="text-editor">
+        <input type="text" id="top-text" placeholder="Enter top text here">
+      </div>
+    </div>
+  </main>
+
+  <section class="about-us">
+    <div class="inner-about-us">
+      <h1>About Us</h1>
+
+    </div>
+
+  </section>
+
+  <section class="contact-info">
+    <div class="inner-contact-info">
+      <h4>coming soon</h4>
+    </div>
+
+  </section>
+
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
 
 </html>
