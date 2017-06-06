@@ -22,8 +22,8 @@ var gElImgBoard;
 var gElEditContainer;
 var gElMemeCanvas;
 var gElTextInput;
-
 var gState;
+
 function init() {
     gElImgBoard = document.querySelector('.imgs-container');
     gElEditContainer = document.querySelector('.edit-container');
@@ -60,11 +60,10 @@ function drawCanvas () {
         return image.id === gState.selectedImgId
     });
     var elImage = document.getElementById(`img-id:${currImageObj.id}`);
-     var context = gElMemeCanvas.getContext("2d");
-     context.drawImage(elImage , 0 , 0, gElMemeCanvas.width, gElMemeCanvas.height); 
+    var context = gElMemeCanvas.getContext("2d");
+    context.drawImage(elImage , 0 , 0, gElMemeCanvas.width, gElMemeCanvas.height); 
 }
 
 function saveImage() {
     window.location.href = gElMemeCanvas.toDataURL();
 }
-

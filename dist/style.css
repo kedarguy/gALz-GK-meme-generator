@@ -438,7 +438,9 @@ template {
   --secondary-font: Ubuntu;
   /* Colors */
   --main-color: #323232;
-  --sections-bg: #f0f0f0; }
+  --sections-bg: #f0f0f0;
+  --contact-color: #e0e0e0;
+  --input-color: #454545; }
 
 /*----------  Containers  ----------*/
 .container {
@@ -585,8 +587,35 @@ main {
   min-height: 500px;
   padding-right: var(--content-padding);
   padding-left: var(--content-padding);
-  background-color: var(--main-color); }
+  background-color: var(--main-color);
+  color: var(--contact-color); }
   .contact-info h4 {
-    color: #e1e1e1; }
+    font-size: 30px; }
+  .contact-info p {
+    font-size: 18px; }
+  .contact-info .contact-body {
+    display: flex; }
+  .contact-info form {
+    flex-basis: 520px; }
+  .contact-info aside {
+    flex-basis: 217px;
+    padding: 0px;
+    padding-left: 20px; }
+    .contact-info aside p {
+      width: 100%;
+      margin: 0;
+      font-size: 12px; }
+  .contact-info input {
+    display: block;
+    width: 100%;
+    height: 38px;
+    margin-bottom: 15.5px;
+    background-color: var(--input-color);
+    color: #aeaeae;
+    border: 0; }
+
+footer {
+  background-color: #222222;
+  color: white; }
 
 /* Components */
