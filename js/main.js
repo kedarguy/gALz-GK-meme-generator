@@ -1,12 +1,12 @@
 'use strict'
 
 var gImgBank = [
-    { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: [] },
-    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: [] },
-    { url: 'https://i.imgflip.com/1q5m5b.jpg', desc: 'trump', id: 2, keywords: [] },
-    { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: [] },
-    { url: 'https://cdn.meme.am/cache/images/folder744/16577744.jpg', desc: 'salt', id: 4, keywords: [] },
-    { url: 'https://i.imgflip.com/1pwxa5.jpg' ,desc: 'golum', id: 5, keywords:[]},
+    { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child'] },
+    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil','celeb'] },
+    { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump','celeb'] },
+    { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: ['celeb'] },
+    { url: 'https://i.imgflip.com/1hdqwp.jpg?a415632', desc: 'salt', id: 4, keywords: ['salt'] },
+    { url: 'https://i.imgflip.com/1pwxa5.jpg' ,desc: 'golum', id: 5, keywords:['golum']},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U529YD0E9-deac2872f743-512' ,desc: 'rakef', id: 10, keywords:[]},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U4ZCWULQH-5dba29cdc46d-512' ,desc: 'ilan', id: 6, keywords:[]},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U508P149K-bd68ecba269e-512' ,desc: 'dor', id: 7, keywords:[]},
@@ -49,18 +49,23 @@ function init() {
 }
 
 
-
 function renderImgs() {
     var strHtml = '';
     for (var i = 0; i < gImgBank.length; i++) {
-        strHtml += `<div class="single-img" >`;
-        strHtml += `<img src="${gImgBank[i].url}" id="img-id:${gImgBank[i].id}" alt="${gImgBank[i].desc}" onclick="displayMemeEditor(${gImgBank[i].id})">`;
-        strHtml += `</div>`;
+        var x = console.log(gImgBank[i].desc);
+        var hexId = gImgBank[i].id;
+        strHtml += `<svg viewBox="0 0 100 100"><defs>`;
+        strHtml += `<pattern id="${hexId}" patternUnits="userSpaceOnUse" width="100" height="100">`;
+        strHtml += `<image xlink:href="${gImgBank[i].url}" x="-25" width="150" height="100" />`;
+        strHtml += `</pattern></defs>`;
+        strHtml += `<polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#${hexId})" onclick="displayMemeEditor(${hexId})"/>`;
+        strHtml += `</svg>`;
     }
     gElImgBoard.innerHTML = strHtml;
 }
 
 function displayMemeEditor(imageId) {
+    console.log(imageId);
     gElImgBoard.style.display = 'none';
     gElEditContainer.style.display = 'flex';
     gState.selectedImgId = imageId;
@@ -72,7 +77,8 @@ function drawCanvas() {
     var currImageObj = gImgBank.find(function (image) {
         return image.id === gState.selectedImgId
     });
-    var elImage = document.getElementById(`img-id:${currImageObj.id}`);
+    var elImage = new Image();
+    elImage.src = gImgBank[gState.selectedImgId].url;
     var ctx = gElMemeCanvas.getContext("2d");
     ctx.drawImage(elImage, 0, 0, gElMemeCanvas.width, gElMemeCanvas.height);
 }

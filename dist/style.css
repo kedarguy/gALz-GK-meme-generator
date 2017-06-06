@@ -417,16 +417,15 @@ template {
 .display-flex {
   display: flex; }
 
-/*----------  Playfair Font  ----------*/
+/*----------  Lato Font  ----------*/
 @font-face {
-  font-family: 'Playfair';
-  src: url("../assets/fonts/playfair/PlayfairDisplay-Regular.ttf"); }
+  font-family: 'Lato';
+  src: url("../assets/fonts/lato/Lato-Regular.ttf"); }
 
-/*----------  Ubunto Font  ----------*/
+/*----------  Maven Pro Font  ----------*/
 @font-face {
-  font-family: 'Ubunto';
-  src: url("../assets/fonts/ubunto/Ubuntu-Light.ttf");
-  font-weight: 400; }
+  font-family: 'Maven Pro';
+  src: url("../assets/fonts/mavenpro/MavenPro-Regular.ttf"); }
 
 :root {
   /* Layout */
@@ -434,13 +433,14 @@ template {
   --inner-container-width: 900px;
   --content-padding: 100px;
   /* Fonts */
-  --primary-font: Playfair;
-  --secondary-font: Ubuntu;
+  --primary-font: Maven Pro;
+  --secondary-font: Lato;
   /* Colors */
   --main-color: #323232;
   --sections-bg: #f0f0f0;
   --contact-color: #e0e0e0;
-  --input-color: #454545; }
+  --input-color: #454545;
+  --about-color: #2eb398; }
 
 /*----------  Containers  ----------*/
 .container {
@@ -571,6 +571,9 @@ main {
     min-height: 300px;
     border: 1px solid blue; }
 
+svg {
+  width: 180px; }
+
 .about-us {
   width: 100%;
   min-height: 340px;
@@ -590,8 +593,10 @@ main {
   background-color: var(--main-color);
   color: var(--contact-color); }
   .contact-info h4 {
-    font-size: 30px; }
+    font-size: 30px;
+    margin: 0; }
   .contact-info p {
+    margin: 0,0, 5px, 5px;
     font-size: 18px; }
   .contact-info .contact-body {
     display: flex; }
@@ -607,12 +612,24 @@ main {
       font-size: 12px; }
   .contact-info input {
     display: block;
+    padding: 0.5em 1.3em;
+    font-size: 12px;
+    font-family: var(--secondary-font);
     width: 100%;
     height: 38px;
     margin-bottom: 15.5px;
     background-color: var(--input-color);
     color: #aeaeae;
     border: 0; }
+  .contact-info #submit {
+    background-color: var(--about-color);
+    color: white;
+    width: 30%;
+    float: right; }
+  .contact-info .address {
+    width: 100%;
+    margin-top: 50px;
+    font-size: 12px; }
 
 footer {
   background-color: #222222;
