@@ -1,17 +1,17 @@
 'use strict'
 
 var gImgBank = [
-    { url: 'assets/img/child.jpg', desc: 'child', id: 0, keywords: [] },
-    { url: 'assets/img/drevil.jpg', desc: 'drevil', id: 1, keywords: [] },
-    { url: 'assets/img/trump.jpg', desc: 'trump', id: 2, keywords: [] },
-    { url: 'assets/img/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: [] },
-    { url: 'assets/img/salt.png', desc: 'salt', id: 4, keywords: [] }
-    // {url: 'assets/img/rakef.png' ,desc: 'rakef', id: 5, keywords:[]}
-    // {url: 'assets/img/ilan.png' ,desc: 'ilan', id: 6, keywords:[]},
-    // {url: 'assets/img/dor.png' ,desc: 'dor', id: 7, keywords:[]},
-    // {url: 'assets/img/yaron.png' ,desc: 'yaron', id: 8, keywords:[]},
-    // {url: 'assets/img/tamir.png' ,desc: 'tamir', id: 9, keywords:[]}
-    // {url: 'https://goo.gl/photos/WxCs2rQVs3qskH3BA' ,desc: 'yaron', id: 10, keywords:[]},
+    { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: [] },
+    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: [] },
+    { url: 'https://i.imgflip.com/1q5m5b.jpg', desc: 'trump', id: 2, keywords: [] },
+    { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: [] },
+    { url: 'https://cdn.meme.am/cache/images/folder744/16577744.jpg', desc: 'salt', id: 4, keywords: [] },
+    { url: 'https://i.imgflip.com/1pwxa5.jpg' ,desc: 'golum', id: 5, keywords:[]},
+    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U529YD0E9-deac2872f743-512' ,desc: 'rakef', id: 10, keywords:[]},
+    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U4ZCWULQH-5dba29cdc46d-512' ,desc: 'ilan', id: 6, keywords:[]},
+    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U508P149K-bd68ecba269e-512' ,desc: 'dor', id: 7, keywords:[]},
+    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U50JWF5PF-g8169be4ae78-512' ,desc: 'yaron', id: 8, keywords:[]},
+    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U50UEPNJH-g648a8e5dcf7-512' ,desc: 'tamir', id: 9, keywords:[]}
     // {url: 'https://goo.gl/photos/WxCs2rQVs3qskH3BA' ,desc: 'oren', id: 11, keywords:[]},
     // {url: 'https://goo.gl/photos/WxCs2rQVs3qskH3BA' ,desc: 'oren', id: 12, keywords:[]},
     // {url: 'https://goo.gl/photos/WxCs2rQVs3qskH3BA' ,desc: 'oren', id: 13, keywords:[]},
@@ -54,7 +54,7 @@ function renderImgs() {
     var strHtml = '';
     for (var i = 0; i < gImgBank.length; i++) {
         strHtml += `<div class="single-img" >`;
-        strHtml += `<img src="${gImgBank[i].url}" id="img-id:${gImgBank[i].id}" crossOrigin="Anonymous" alt="${gImgBank[i].desc}" onclick="displayMemeEditor(${gImgBank[i].id})">`;
+        strHtml += `<img src="${gImgBank[i].url}" id="img-id:${gImgBank[i].id}" alt="${gImgBank[i].desc}" onclick="displayMemeEditor(${gImgBank[i].id})">`;
         strHtml += `</div>`;
     }
     gElImgBoard.innerHTML = strHtml;
