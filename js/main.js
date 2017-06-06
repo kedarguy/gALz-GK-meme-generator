@@ -21,14 +21,21 @@ var gImgBank = [
 var gElImgBoard;
 var gElEditContainer;
 var gElMemeCanvas;
+var gElTextInput;
+
+var gState;
 function init() {
     gElImgBoard = document.querySelector('.imgs-container');
     gElEditContainer = document.querySelector('.edit-container');
     gElMemeCanvas = document.querySelector('#memeCanvas');
+    gElTextInput = document.querySelector('.text-input');
+    gState = {};
     
     renderImgs();
 
 }
+
+
 
 function renderImgs() {
     var strHtml = '';
@@ -43,15 +50,18 @@ function renderImgs() {
 function displayMemeEditor(image) {
     gElImgBoard.style.display = 'none';
     gElEditContainer.style.display = 'flex';
+    gState.selectedImgId = image.id;
     
     var context = gElMemeCanvas.getContext("2d");
     context.drawImage(image, 0 , 0, gElMemeCanvas.width, gElMemeCanvas.height); 
-    context.fillText('Hello', 10,50);
 
+}
+
+function drawCanvasWithText () {
+    
 }
 
 function saveImage() {
     window.location.href = gElMemeCanvas.toDataURL();
 }
-
 
