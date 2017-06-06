@@ -40,24 +40,27 @@ function renderImgs() {
     var strHtml = '';
     for (var i = 0; i < gImgBank.length; i++) {
         strHtml += `<div class="single-img" >`;
-        strHtml += `<img src="${gImgBank[i].url}" crossOrigin="Anonymous" alt="${gImgBank[i].desc}" onclick="displayMemeEditor(this)">`;
+        strHtml += `<img src="${gImgBank[i].url}" id="img-id:${gImgBank[i].id}" crossOrigin="Anonymous" alt="${gImgBank[i].desc}" onclick="displayMemeEditor(${gImgBank[i].id})">`;
         strHtml += `</div>`;
     }
     gElImgBoard.innerHTML = strHtml;
 }
 
-function displayMemeEditor(image) {
+function displayMemeEditor(imageId) {
     gElImgBoard.style.display = 'none';
     gElEditContainer.style.display = 'flex';
-    gState.selectedImgId = image.id;
-    
-    var context = gElMemeCanvas.getContext("2d");
-    context.drawImage(image, 0 , 0, gElMemeCanvas.width, gElMemeCanvas.height); 
+    gState.selectedImgId = imageId;
+    drawCanvas();
 
 }
 
-function drawCanvasWithText () {
-    
+function drawCanvas () {
+    var currImageObj = gImgBank.find(function(image){
+        return image.id === gState.selectedImgId
+    });
+    var elImage = document.getElementById(`img-id:${currImageObj.id}`);
+     var context = gElMemeCanvas.getContext("2d");
+     context.drawImage(elImage , 0 , 0, gElMemeCanvas.width, gElMemeCanvas.height); 
 }
 
 function saveImage() {
