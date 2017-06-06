@@ -23,8 +23,9 @@ var gImgBoard = document.querySelector('.imgs-container');
 renderImgs();
 
 function renderImgs() {
-    var strHtml = `<div class="single-img" onclick="memeCreator(this)">`;
+    var strHtml = ''; 
     for(var i=0; i<gImgBank.length; i++) {
+        strHtml += `<div class="single-img" onclick="memeCreator(this)">`;
         strHtml += `<img src="${gImgBank[i].url}" alt="${gImgBank[i].desc}">`;
         strHtml += `</div>`;
     }
