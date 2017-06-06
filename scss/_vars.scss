@@ -1,16 +1,19 @@
 $container-width: 100%;
 $mobile-breakpoint: 642px;
+$content-padding:100px;
 
 :root {
   /* Layout */
   --container-width: $container-width;
   --inner-container-width: 900px;
+  --content-padding: $content-padding;
   /* Fonts */
   --primary-font: Playfair;
   --secondary-font: Ubuntu;
   /* Colors */
-  --main-color: #626262;
+  --main-color: #323232;
   --sections-bg: #f0f0f0;
+
 }
 
 

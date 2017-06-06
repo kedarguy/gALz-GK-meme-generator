@@ -1,0 +1,13 @@
+.about-us {
+    width: 100%;
+    min-height: 340px;
+    background: #2eb398;
+    padding-right: var(--content-padding);
+    padding-left: var(--content-padding);
+
+    .inner-about-us {
+        outline: 1px solid black;
+        width: 100%;
+        height: 100%;
+    }
+}
