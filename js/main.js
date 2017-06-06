@@ -53,3 +53,5 @@ function displayMemeEditor(image) {
 function saveImage() {
     window.location.href = gElMemeCanvas.toDataURL();
 }
+
+
