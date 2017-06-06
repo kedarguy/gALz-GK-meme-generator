@@ -426,11 +426,12 @@ template {
   /* Layout */
   --container-width: 100%;
   --inner-container-width: 900px;
+  --content-padding: 100px;
   /* Fonts */
   --primary-font: Playfair;
   --secondary-font: Ubuntu;
   /* Colors */
-  --main-color: #626262;
+  --main-color: #323232;
   --sections-bg: #f0f0f0; }
 
 /*----------  Containers  ----------*/
@@ -516,6 +517,40 @@ nav {
 main {
   width: 100%;
   min-height: 700px;
-  background-color: white; }
+  background-color: white;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 113px;
+  padding-bottom: 89px;
+  display: flex;
+  flex-direction: column; }
+  main .imgs-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    outline: 1px solid black;
+    padding-left: var(--content-padding);
+    padding-right: var(--content-padding); }
+
+.about-us {
+  width: 100%;
+  min-height: 340px;
+  background: #2eb398;
+  padding-right: var(--content-padding);
+  padding-left: var(--content-padding); }
+  .about-us .inner-about-us {
+    outline: 1px solid black;
+    width: 100%;
+    height: 100%; }
+
+.contact-info {
+  width: 100%;
+  min-height: 500px;
+  padding-right: var(--content-padding);
+  padding-left: var(--content-padding);
+  background-color: var(--main-color); }
+  .contact-info h4 {
+    color: #e1e1e1; }
 
 /* Components */
