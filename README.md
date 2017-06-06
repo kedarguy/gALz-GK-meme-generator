@@ -6,4 +6,4 @@ https://kedarguy.github.io/gALz-GK-meme-generator/
 
 Enjoy!
 
-![Alt](img/logo.png "logo")
+![Alt](http://i.imgur.com/lrIBZFe.png "logo")
