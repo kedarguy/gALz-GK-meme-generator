@@ -1,0 +1,32 @@
+nav {
+    width: 100%;
+    background-color: #323232;
+    color: #ffffff;
+    font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: center;
+    padding: 10px;
+
+    .link-list {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        
+        ul {
+            li {
+                display: inline-flex;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+    }
+}

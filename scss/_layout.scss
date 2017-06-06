@@ -2,8 +2,12 @@
 
 .container {
   width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 1em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: 1px solid black;
 }
 
 .inner-container {
