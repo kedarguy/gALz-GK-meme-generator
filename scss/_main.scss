@@ -11,13 +11,26 @@ main {
     flex-direction: column;
 
     .imgs-container {
+        width:100%;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
-        align-items: flex-start;
         outline: 1px solid black;
         padding-left: var(--content-padding);
         padding-right: var(--content-padding);
+
+        }
+        
+        .single-img {
+            width: 180px;
+            height: 180px;
+            margin: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
     }
 
 
