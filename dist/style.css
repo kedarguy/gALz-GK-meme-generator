@@ -525,13 +525,21 @@ main {
   display: flex;
   flex-direction: column; }
   main .imgs-container {
+    width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
     outline: 1px solid black;
     padding-left: var(--content-padding);
     padding-right: var(--content-padding); }
+  main .single-img {
+    width: 180px;
+    height: 180px;
+    margin: 10px; }
+    main .single-img img {
+      width: 100%;
+      height: 100%; }
 
 .about-us {
   width: 100%;
