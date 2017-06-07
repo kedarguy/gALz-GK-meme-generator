@@ -1,12 +1,12 @@
 'use strict'
 
 var gImgBank = [
-    { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child'] },
-    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil', 'celeb'] },
-    { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump', 'celeb'] },
-    { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: ['celeb'] },
-    { url: 'https://i.imgflip.com/1hdqwp.jpg?a415632', desc: 'salt', id: 4, keywords: ['salt'] },
-    { url: 'https://i.imgflip.com/1pwxa5.jpg', desc: 'golum', id: 5, keywords: ['golum'] },
+    { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child','rakefet','cool','image'] },
+    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil', 'celeb','cool','image','rakefet'] },
+    { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump', 'celeb','image'] },
+    { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: ['celeb','image','rakefet'] },
+    { url: 'https://i.imgflip.com/1hdqwp.jpg?a415632', desc: 'salt', id: 4, keywords: ['salt','image','rakefet'] },
+    { url: 'https://i.imgflip.com/1pwxa5.jpg', desc: 'golum', id: 5, keywords: ['golum','image'] },
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U529YD0E9-deac2872f743-512' ,desc: 'rakef', id: 10, keywords:[]},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U4ZCWULQH-5dba29cdc46d-512' ,desc: 'ilan', id: 6, keywords:[]},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U508P149K-bd68ecba269e-512' ,desc: 'dor', id: 7, keywords:[]},
@@ -23,12 +23,14 @@ var gElEditContainer;
 var gElMemeCanvas;
 var gElTextInput;
 var gState;
+var gElSearchByTag;
 
 function init() {
     gElImgBoard = document.querySelector('.imgs-container');
     gElEditContainer = document.querySelector('.edit-container');
     gElMemeCanvas = document.querySelector('#memeCanvas');
     gElTextInput = document.querySelector('.text-input');
+    gElSearchByTag = document.querySelector('#search-by-tag');
     gState = {
         txts: [
             {
@@ -42,7 +44,7 @@ function init() {
             }
         ]
     };
-
+    createTagIdx ();
     renderImgs();
 
 }
@@ -219,3 +221,44 @@ function changeFont(elInput, idx) {
 function saveImage() {
     window.location.href = gElMemeCanvas.toDataURL();
 }
+
+// function createTagIdx () {
+//     var tagIdx = [{keywords: '', numberOfAppearances:''}];
+//     // gImgBank.forEach()
+//     tagIdx = { };
+//     for(var i = 0; i < gImgBank.length; i++) {
+//         for(var j=0;j< gImgBank[i].keywords.length; j++) {
+//             if(!tagIdx[gImgBank[i].keywords[j]]) tagIdx[gImgBank[i].keywords[j]] = tagIdx[gImgBank[i]];
+//             else                                 tagIdx[gImgBank[i].keywords[j]].push(tagIdx[gImgBank[i]]);
+//             }
+//         }
+// }
+
+function createTagIdx () {
+    var tagIdx = {};
+    var tagIdxs = [];
+    gImgBank.forEach(function(imgObj) {
+        imgObj.keywords.forEach(function(keyword) {
+            if(!tagIdx[keyword]) {
+                tagIdx[keyword] = 1;
+            }
+            tagIdx[keyword]++;
+            
+        })
+    })
+    debugger;
+    for (var keyword in tagIdx) {
+        var currObj = {name:keyword, imgs:tagIdx[keyword]}
+        tagIdxs.push(currObj); 
+    }
+    createTagsCloud(tagIdxs);
+}
+
+function addTagToInput (tag) {
+    gElSearchByTag.value += tag.innerHTML;
+    gElSearchByTag.value += ' ';
+}
+
+// function filterByTag (tag) {
+//     var filteredImgs
+// }

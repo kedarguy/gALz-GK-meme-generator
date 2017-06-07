@@ -65,7 +65,28 @@ main {
 
 }
 
+.tagscloud {
+    display: block;
+    margin: auto;
+}
+
 .thumbs {
   width:180px;
 }
 
+.options-container {
+    text-align:center
+}
+
+.options-container button {
+    width: 40vw;
+    display: inline-block;
+    text-align: center;
+}
+
+.search-img input {
+    display: block;
+    width: 50%;    
+    margin-left: auto;
+    margin-right: auto;
+}
