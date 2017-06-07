@@ -27,77 +27,81 @@
     <main>
       <div class="imgs-container">
       </div>
-      <div class="options-container">
+
+      <div class="search-container">
+        <div class="options-container">
           <button class="search-img" onclick="generateTagCloud()">Search by key</button>
-          <button id="add-by-url" onclick="addImgByUrl()">Add image by URL</button>          
-      </div>
+          <button id="add-by-url" onclick="addImgByUrl()">Add image by URL</button>
+        </div>
+
         <div class="search-img">
-        <input type="searchkey" id="search-by-tag" placeholder="Insert keywords"/>  
+          <input type="searchkey" id="search-by-tag" placeholder="Insert keywords" />
           <div id="cloud"></div>
         </div>
-      
-
-    <div class="edit-container">
-      <button onclick="saveImage()" class="saveMeme"></button>
-      <canvas id="memeCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
-      <button onclick="addTxt()" class="add-txt"><i class="fa fa-plus" aria-hidden="true"></i></button>
-          <section class="canvas-edit-area">
-            
-          </section>
-        
-        </div>
-
-     
- 
-  </main>
-
-  <section class="about-us">
-    <div class="inner-about-us">
-      <h1>About Us</h1>
-
-    </div>
-
-  </section>
+      </div>
 
 
-  <section class="contact-info">
-    <div class="inner-contact-info">
-      <h4>Get In Touch</h4>
-      <p>In order to get in touch use the contact from below and Ilan will get back to you shortley</p>
-      <div class="contact-body">
-        <form class="contact-form" id="contact-form" onsubmit="contactForm(event)">
-          <input type="text" id="name" name="name" placeholder="Name (required)" required/>
-          <input type="email" id="email" name="email" placeholder="Email (required)" />
-          <input type="subject" id="subject" name="subject" placeholder="Subject" />
-          <input type="message" id="message" name="message" placeholder="Write you messege here..." />
-          <input type="submit" value="Send" id="submit">
-        </form>
-        <aside class=contact-info>
-          <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-          <br>
-          <br>
-          <p>blah blah blah blah </p>
-          <div class="address">
-            <img class="ImgAddress" src="assets/img/location.png"> Elm St. 14/05 Lost City <br>
-            <img class="ImgAddress" src="assets/img/phone.png"> + 3528 331 86 35 <br>
-            <img class="ImgAddress" src="assets/img/mail.png"> info@hexalcorp.com
-          </div>
-        </aside>
+      <div class="edit-container">
+        <button onclick="saveImage()" class="saveMeme"></button>
+        <canvas id="memeCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+        <button onclick="addTxt()" class="add-txt"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <section class="canvas-edit-area">
+
+        </section>
 
       </div>
 
-  </section>
 
 
-  </div>
-  <script src="js/main.js"></script>
-  <script src="assets/lib/d3.min.js"></script>
-  <script src="assets/lib/d3.layout.cloud.js"></script>
-  <script src="assets/lib/lodash.min.js"></script>
-  <script src="js/tagscloud.js"></script>
-  <footer>
-    © gALz & GK
-  </footer>
+    </main>
+
+    <section class="about-us">
+      <div class="inner-about-us">
+        <h1>About Us</h1>
+
+      </div>
+
+    </section>
+
+
+    <section class="contact-info">
+      <div class="inner-contact-info">
+        <h4>Get In Touch</h4>
+        <p>In order to get in touch use the contact from below and Ilan will get back to you shortley</p>
+        <div class="contact-body">
+          <form class="contact-form" id="contact-form" onsubmit="contactForm(event)">
+            <input type="text" id="name" name="name" placeholder="Name (required)" required/>
+            <input type="email" id="email" name="email" placeholder="Email (required)" />
+            <input type="subject" id="subject" name="subject" placeholder="Subject" />
+            <input type="message" id="message" name="message" placeholder="Write you messege here..." />
+            <input type="submit" value="Send" id="submit">
+          </form>
+          <aside class=contact-info>
+            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+            <br>
+            <br>
+            <p>blah blah blah blah </p>
+            <div class="address">
+              <img class="ImgAddress" src="assets/img/location.png"> Elm St. 14/05 Lost City <br>
+              <img class="ImgAddress" src="assets/img/phone.png"> + 3528 331 86 35 <br>
+              <img class="ImgAddress" src="assets/img/mail.png"> info@hexalcorp.com
+            </div>
+          </aside>
+
+        </div>
+
+    </section>
+
+
+    </div>
+    <script src="js/main.js"></script>
+    <script src="assets/lib/d3.min.js"></script>
+    <script src="assets/lib/d3.layout.cloud.js"></script>
+    <script src="assets/lib/lodash.min.js"></script>
+    <script src="js/tagscloud.js"></script>
+    <footer>
+      © gALz & GK
+    </footer>
 </body>
 
 </html>

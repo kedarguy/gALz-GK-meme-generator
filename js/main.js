@@ -246,7 +246,6 @@ function createTagIdx () {
             
         })
     })
-    debugger;
     for (var keyword in tagIdx) {
         var currObj = {name:keyword, imgs:tagIdx[keyword]}
         tagIdxs.push(currObj); 
