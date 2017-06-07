@@ -22,14 +22,14 @@
       </div>
     </nav>
 
-    <main>
-      <div class="imgs-container">
 
-      </div>
-
-      <div class="edit-container">
-        <canvas id="memeCanvas"></canvas>
-        <button onclick="saveImage()">Save</button>
+  <main>
+    <div class="imgs-container">
+    </div>
+    
+    <div class="edit-container">
+      <canvas id="memeCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+      <button onclick="saveImage()">Save</button>
 
         <div class="text-editor">
           <input type="text" id="top-text" placeholder="Enter top text here" oninput="updateTxts(this, 0)">
@@ -63,25 +63,31 @@
 
     </section>
 
-    <section class="contact-info">
-      <div class="inner-contact-info">
-        <h4>Get In Touch</h4>
-        <p>In order to get in touch use the contact from below and Ilan will get back to you shortley</p>
-        <div class="contact-body">
-          <form class="contact-form" id="contact-form" onsubmit="contactForm(event)">
-            <input type="text" id="name" name="name" placeholder="Name (required)" required/>
-            <input type="email" id="email" name="email" placeholder="Email (required)" />
-            <input type="subject" id="subject" name="subject" placeholder="Subject" />
-            <input type="message" id="message" name="message" placeholder="Write you messege here..." />
-            <input type="submit" value="Submit" id="submit">
-          </form>
-          <aside class=contact-info>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-            <br>
-            <br>
-            <p>blah blah blah blah </p>
-          </aside>
-        </div>
+
+  <section class="contact-info">
+    <div class="inner-contact-info">
+      <h4>Get In Touch</h4>
+      <p>In order to get in touch use the contact from below and Ilan will get back to you shortley</p>
+      <div class="contact-body">
+        <form class="contact-form" id="contact-form" onsubmit="contactForm(event)">
+          <input type="text" id="name" name="name" placeholder="Name (required)" required/>
+          <input type="email" id="email" name="email" placeholder="Email (required)" />
+          <input type="subject" id="subject" name="subject" placeholder="Subject" />
+          <input type="message" id="message" name="message" placeholder="Write you messege here..." />
+          <input type="submit" value="Send" id="submit">
+        </form>
+        <aside class=contact-info>
+          <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+          <br>
+          <br>
+          <p>blah blah blah blah </p>
+          <div class="address">
+            <img class="ImgAddress" src="assets/img/location.png"> Elm St. 14/05 Lost City <br>
+            <img class="ImgAddress" src="assets/img/phone.png"> + 3528 331 86 35 <br>
+            <img class="ImgAddress" src="assets/img/mail.png"> info@hexalcorp.com
+          </div>
+        </aside>
+
       </div>
 
     </section>
