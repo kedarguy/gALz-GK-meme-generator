@@ -2,11 +2,11 @@
 
 var gImgBank = [
     { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child'] },
-    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil','celeb'] },
-    { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump','celeb'] },
+    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil', 'celeb'] },
+    { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump', 'celeb'] },
     { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: ['celeb'] },
     { url: 'https://i.imgflip.com/1hdqwp.jpg?a415632', desc: 'salt', id: 4, keywords: ['salt'] },
-    { url: 'https://i.imgflip.com/1pwxa5.jpg' ,desc: 'golum', id: 5, keywords:['golum']},
+    { url: 'https://i.imgflip.com/1pwxa5.jpg', desc: 'golum', id: 5, keywords: ['golum'] },
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U529YD0E9-deac2872f743-512' ,desc: 'rakef', id: 10, keywords:[]},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U4ZCWULQH-5dba29cdc46d-512' ,desc: 'ilan', id: 6, keywords:[]},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U508P149K-bd68ecba269e-512' ,desc: 'dor', id: 7, keywords:[]},
@@ -40,11 +40,57 @@ function init() {
                 textStartPointW: gElMemeCanvas.width / 2,
                 textStartPointH: 30
             }
-
         ]
     };
 
     renderImgs();
+
+}
+
+function addTxt() {
+    gState.txts.push(
+        {
+                txt: '',
+                fontSize: 26,
+                color: 'black',
+                fontFamily: 'serif',
+                textAlign: 'center',
+                textStartPointW: gElMemeCanvas.width / 2,
+                textStartPointH: 30
+            }
+    );
+    renderTxtEditors();
+}
+
+function renderTxtEditors() {
+
+    var strHtml = '';
+    for (var i = 0; i < gState.txts.length; i++) {
+        strHtml += ` 
+        <div class="text-editor">
+          <input type="text" id="top-text:${i}" placeholder="Enter top text here" oninput="updateTxts(this, ${i})">
+          <div class="edit-buttons">
+            <button onclick="deleteText('top-text:${i}', ${i})">delete</button>
+            <select oninput="changeFont(this, ${i})">
+            <option value="sans">Sans</option>
+            <option value="Arial">Arial</option>
+            <option value="AvantGarde">Avant Garde</option>
+          </select>
+            <button onclick="increaseFont(${i})">Size +</button>
+            <button onclick="decreaseFont(${i})">Size -</button>
+            <input oninput="changeColor(this, ${i})" type="color">
+            <button onclick="txtAlignleft(${i})">txt align left</button>
+            <button onclick="txtAlignCenter(${i})">txt align center</button>
+            <button onclick="txtAlignRight(${i})">txt align right</button>
+            <button onclick="moveRight(${i})">right</button>
+            <button onclick="moveLeft(${i})">left</button>
+            <button onclick="moveUp(${i})">up</button>
+            <button onclick="moveDown(${i})">down</button>
+          </div>
+        </div>`
+    }
+    var elEditArea = document.querySelector('.canvas-edit-area');
+    elEditArea.innerHTML = strHtml;
 
 }
 
@@ -70,6 +116,7 @@ function displayMemeEditor(imageId) {
     gElEditContainer.style.display = 'flex';
     gState.selectedImgId = imageId;
     drawCanvas();
+    renderTxtEditors();
 
 }
 

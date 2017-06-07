@@ -30,27 +30,11 @@
     <div class="edit-container">
       <canvas id="memeCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
       <button onclick="saveImage()">Save</button>
-
-        <div class="text-editor">
-          <input type="text" id="top-text" placeholder="Enter top text here" oninput="updateTxts(this, 0)">
-          <div class="edit-buttons">
-            <button onclick="deleteText('top-text', 0)">delete</button>
-            <select oninput="changeFont(this, 0)">
-            <option value="sans">Sans</option>
-            <option value="Arial">Arial</option>
-            <option value="AvantGarde">Avant Garde</option>
-          </select>
-            <button onclick="increaseFont(0)">Size +</button>
-            <button onclick="decreaseFont(0)">Size -</button>
-            <input oninput="changeColor(this, 0)" type="color">
-            <button onclick="txtAlignleft(0)">txt align left</button>
-            <button onclick="txtAlignCenter(0)">txt align center</button>
-            <button onclick="txtAlignRight(0)">txt align right</button>
-            <button onclick="moveRight(0)">right</button>
-            <button onclick="moveLeft(0)">left</button>
-            <button onclick="moveUp(0)">up</button>
-            <button onclick="moveDown(0)">down</button>
-          </div>
+      <button onclick="addTxt()">Add Text</button>
+          <section class="canvas-edit-area">
+            
+          </section>
+        
         </div>
       </div>
     </main>
