@@ -1,12 +1,12 @@
 'use strict'
 
 var gImgBank = [
-    { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child','rakefet','cool','image'] },
-    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil', 'celeb','cool','image','rakefet'] },
-    { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump', 'celeb','image'] },
-    { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: ['celeb','image','rakefet'] },
-    { url: 'https://i.imgflip.com/1hdqwp.jpg?a415632', desc: 'salt', id: 4, keywords: ['salt','image','rakefet'] },
-    { url: 'https://i.imgflip.com/1pwxa5.jpg', desc: 'golum', id: 5, keywords: ['golum','image'] },
+    { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child', 'rakefet', 'cool', 'image'] },
+    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil', 'celeb', 'cool', 'image'] },
+    { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump', 'celeb', 'image'] },
+    { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: ['celeb', 'image'] },
+    { url: 'https://i.imgflip.com/1hdqwp.jpg?a415632', desc: 'salt', id: 4, keywords: ['salt', 'image'] },
+    { url: 'https://i.imgflip.com/1pwxa5.jpg', desc: 'golum', id: 5, keywords: ['golum', 'rakefet'] },
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U529YD0E9-deac2872f743-512' ,desc: 'rakef', id: 10, keywords:[]},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U4ZCWULQH-5dba29cdc46d-512' ,desc: 'ilan', id: 6, keywords:[]},
     // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U508P149K-bd68ecba269e-512' ,desc: 'dor', id: 7, keywords:[]},
@@ -44,22 +44,22 @@ function init() {
             }
         ]
     };
-    createTagIdx ();
-    renderImgs();
+    createTagIdx();
+    renderImgs(gImgBank);
 
 }
 
 function addTxt() {
     gState.txts.push(
         {
-                txt: '',
-                fontSize: 26,
-                color: 'black',
-                fontFamily: 'serif',
-                textAlign: 'center',
-                textStartPointW: gElMemeCanvas.width / 2,
-                textStartPointH: 30
-            }
+            txt: '',
+            fontSize: 26,
+            color: 'black',
+            fontFamily: 'serif',
+            textAlign: 'center',
+            textStartPointW: gElMemeCanvas.width / 2,
+            textStartPointH: 30
+        }
     );
     renderTxtEditors();
 }
@@ -68,7 +68,7 @@ function renderTxtEditors() {
 
     var strHtml = '';
     for (var i = 0; i < gState.txts.length; i++) {
-           
+
         strHtml += ` 
         <div class="text-editor">
           <div class="edit-buttons">
@@ -105,14 +105,14 @@ function renderTxtEditors() {
 }
 
 
-function renderImgs() {
+function renderImgs(imgs) {
     var strHtml = '';
-    for (var i = 0; i < gImgBank.length; i++) {
-        var x = console.log(gImgBank[i].desc);
-        var hexId = gImgBank[i].id;
+    for (var i = 0; i < imgs.length; i++) {
+        var x = console.log(imgs[i].desc);
+        var hexId = imgs[i].id;
         strHtml += `<svg class="thumbs" viewBox="0 0 100 100"><defs>`;
         strHtml += `<pattern id="${hexId}" patternUnits="userSpaceOnUse" width="100" height="100">`;
-        strHtml += `<image xlink:href="${gImgBank[i].url}" x="-25" width="150" height="100" />`;
+        strHtml += `<image xlink:href="${imgs[i].url}" x="-25" width="150" height="100" />`;
         strHtml += `</pattern></defs>`;
         strHtml += `<polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#${hexId})" onclick="displayMemeEditor(${hexId})"/>`;
         strHtml += `</svg>`;
@@ -121,7 +121,7 @@ function renderImgs() {
 }
 
 function displayMemeEditor(imageId) {
-    var elSearchCont = document.querySelector('.search-container'); 
+    var elSearchCont = document.querySelector('.search-container');
     gElImgBoard.style.display = 'none';
     elSearchCont.style.display = 'none';
     gElEditContainer.style.display = 'flex';
@@ -160,7 +160,7 @@ function drawCanvasWithText() {
 
 function fontSizeChange(idx, sizeChange) {
     if (sizeChange === 1) gState.txts[idx].fontSize++
-    else                  gState.txts[idx].fontSize--
+    else gState.txts[idx].fontSize--
     drawCanvasWithText();
 }
 
@@ -176,7 +176,7 @@ function changeColor(elColorPicker, idx) {
     drawCanvasWithText();
 }
 
-function txtAlign(idx , alignInput) {
+function txtAlign(idx, alignInput) {
     switch (alignInput) {
         case 'left':
             gState.txts[idx].textAlign = 'left';
@@ -184,7 +184,7 @@ function txtAlign(idx , alignInput) {
             break;
         case 'right':
             gState.txts[idx].textAlign = 'right';
-            gState.txts[idx].textStartPointW = gElMemeCanvas.width -5;
+            gState.txts[idx].textStartPointW = gElMemeCanvas.width - 5;
             break;
         case 'center':
             gState.txts[idx].textAlign = 'center';
@@ -209,7 +209,7 @@ function moveText(idx, direction) {
             gState.txts[idx].textStartPointH++
             break;
     }
-    
+
     drawCanvasWithText();
 }
 
@@ -234,30 +234,44 @@ function saveImage() {
 //         }
 // }
 
-function createTagIdx () {
+function createTagIdx() {
     var tagIdx = {};
     var tagIdxs = [];
-    gImgBank.forEach(function(imgObj) {
-        imgObj.keywords.forEach(function(keyword) {
-            if(!tagIdx[keyword]) {
+    gImgBank.forEach(function (imgObj) {
+        imgObj.keywords.forEach(function (keyword) {
+            if (!tagIdx[keyword]) {
                 tagIdx[keyword] = 1;
             }
             tagIdx[keyword]++;
-            
+
         })
     })
     for (var keyword in tagIdx) {
-        var currObj = {name:keyword, imgs:tagIdx[keyword]}
-        tagIdxs.push(currObj); 
+        var currObj = { name: keyword, imgs: tagIdx[keyword] }
+        tagIdxs.push(currObj);
     }
     createTagsCloud(tagIdxs);
 }
 
-function addTagToInput (tag) {
+function addTagToInput(tag) {
     gElSearchByTag.value += tag.innerHTML;
     gElSearchByTag.value += ' ';
+    filterByTag(gElSearchByTag.value);
 }
 
-function filterByTag (tag) {
+function filterByTag(tag) {
+    tag = tag.trim();
     console.log(tag);
+    var tags = tag.split(' ');
+    var filteredImg = [];
+    gImgBank.forEach(function (imgObj) {
+        imgObj.keywords.forEach(function (keyword) {
+            for (var x = 0; x < tags.length; x++)
+                if (tags[x] === keyword) {
+                    x++;
+                    filteredImg.push(imgObj)
+                }
+        })
+    })
+    renderImgs(filteredImg);
 }
