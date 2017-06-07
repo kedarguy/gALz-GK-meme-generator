@@ -54,7 +54,7 @@ function renderImgs() {
     for (var i = 0; i < gImgBank.length; i++) {
         var x = console.log(gImgBank[i].desc);
         var hexId = gImgBank[i].id;
-        strHtml += `<svg viewBox="0 0 100 100"><defs>`;
+        strHtml += `<svg class="thumbs" viewBox="0 0 100 100"><defs>`;
         strHtml += `<pattern id="${hexId}" patternUnits="userSpaceOnUse" width="100" height="100">`;
         strHtml += `<image xlink:href="${gImgBank[i].url}" x="-25" width="150" height="100" />`;
         strHtml += `</pattern></defs>`;

@@ -26,7 +26,12 @@
   <main>
     <div class="imgs-container">
     </div>
-    
+
+    <div class="search-container">
+        <input id="filter" type="text" onkeyup="generateTagCloud()" placeholder="Type a Tag..." />
+        <div id="cloud"></div>
+    </div>
+
     <div class="edit-container">
       <canvas id="memeCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
       <button onclick="saveImage()">Save</button>
@@ -95,7 +100,11 @@
 
   </div>
 
-  <script src="js/main.js"></script>
+        <script src="./node_modules/d3/d3.min.js"></script>
+        <script src="./node_modules/d3-cloud/build/d3.layout.cloud.js"></script>
+        <script src="./node_modules/lodash/lodash.min.js"></script>
+        <script src="js/tagscloud.js"></script>
+        <script src="js/main.js"></script>
   <footer>
     © gALz & GK
   </footer>
