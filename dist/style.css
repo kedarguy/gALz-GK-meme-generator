@@ -658,24 +658,28 @@ button {
   font-family: var(--secondary-font); }
 
 .edit-container {
-  padding-top: 60px; }
+  padding-top: 15px; }
 
-.saveMeme {
-  background-image: url(../assets/img/genrateMeme.png);
-  height: 80px;
-  width: 80px;
-  background-size: contain;
-  background-position: center;
-  display: block;
-  margin: auto;
-  margin-bottom: 40px; }
-
-.add-txt {
-  height: 80px;
-  width: 80px;
-  display: block;
-  margin: 20px auto;
-  font-size: 40px; }
+.add-txt-or-props {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  .add-txt-or-props button {
+    height: 40px;
+    width: 40px;
+    display: block;
+    margin: 2px 0;
+    font-size: 20px; }
+  .add-txt-or-props .add-props {
+    background-image: url(../assets/img/props.jpg);
+    background-size: contain;
+    background-position: center; }
+  .add-txt-or-props .saveMeme {
+    background-image: url(../assets/img/genrateMeme.png);
+    height: 80px;
+    width: 80px;
+    background-size: contain;
+    background-position: center; }
 
 .text-editor {
   text-align: center; }
@@ -701,5 +705,12 @@ button {
 
 .text-align {
   display: inline-block; }
+
+.saveMeme {
+  background-image: url(../assets/img/genrateMeme.png);
+  height: 80px;
+  width: 80px;
+  background-size: contain;
+  background-position: center; }
 
 /* Components */
