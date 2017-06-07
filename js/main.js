@@ -24,14 +24,16 @@ var gElEditContainer;
 var gElMemeCanvas;
 var gElTextInput;
 var gState;
-var gElSearchByTag;
+// var gElSearchByTag;
+var gElTagFilter;
 
 function init() {
     gElImgBoard = document.querySelector('.imgs-container');
     gElEditContainer = document.querySelector('.edit-container');
     gElMemeCanvas = document.querySelector('#memeCanvas');
     gElTextInput = document.querySelector('.text-input');
-    gElSearchByTag = document.querySelector('#search-by-tag');
+    // gElSearchByTag = document.querySelector('#search-by-tag');
+    gElTagFilter = document.querySelector('.tag-filter-wrapper');
     gState = {
         txts: [
             {
@@ -261,24 +263,49 @@ function addTagToInput(tag) {
     })) {
         gTags.push(tag.innerHTML);
         filterByTag();
-        gElSearchByTag.value += tag.innerHTML + ' ';
+        // gElSearchByTag.value += tag.innerHTML + ' ';
     } else console.log('already exists');
     var searchStr = '';
 }
 
 function filterByTag() {
+    if (gTags.length === 0) {
+        renderImgs(gImgBank);
+        renderTags();
+        return
+    }
     var filteredImg = [];
     gImgBank.forEach(function (imgObj) {
-        imgObj.keywords.forEach(function (keyword) {;
+        imgObj.keywords.forEach(function (keyword) {
+            ;
             for (var x = 0; x < gTags.length; x++) {
                 if (gTags[x] === keyword) {
                     if (!filteredImg.find(function (img) {
                         return img === imgObj
                     }))
-                    filteredImg.push(imgObj);
+                        filteredImg.push(imgObj);
                 }
             }
         })
     })
+    renderTags();
     renderImgs(filteredImg);
 }
+
+
+function renderTags() {
+    var strHtml = '';
+    for (var i = 0; i < gTags.length; i++) {
+        // var tagId = gTags[i];
+        strHtml += `<div class="tag-filter filter-${i}">`;
+        strHtml += `${gTags[i]}`;
+        strHtml += `<span class="close-tag filter-${i}" onclick="closeFilter('${i}')"></span></div>`;
+    }
+    gElTagFilter.innerHTML = strHtml;
+}
+
+function closeFilter(filterId) {
+    gTags.splice(filterId, 1);
+    filterByTag();
+}
+
