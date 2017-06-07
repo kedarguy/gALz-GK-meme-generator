@@ -1,5 +1,6 @@
 'use strict'
 
+var gTags = [];
 var gImgBank = [
     { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child', 'rakefet', 'cool', 'image'] },
     { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil', 'celeb', 'cool', 'image'] },
@@ -254,23 +255,29 @@ function createTagIdx() {
 }
 
 function addTagToInput(tag) {
-    gElSearchByTag.value += tag.innerHTML;
-    gElSearchByTag.value += ' ';
-    filterByTag(gElSearchByTag.value);
+
+    if (!gTags.find(function (val) {
+        return val === tag.innerHTML
+    })) {
+        gTags.push(tag.innerHTML);
+        filterByTag();
+        gElSearchByTag.value += tag.innerHTML + ' ';
+    } else console.log('already exists');
+    var searchStr = '';
 }
 
-function filterByTag(tag) {
-    tag = tag.trim();
-    console.log(tag);
-    var tags = tag.split(' ');
+function filterByTag() {
     var filteredImg = [];
     gImgBank.forEach(function (imgObj) {
-        imgObj.keywords.forEach(function (keyword) {
-            for (var x = 0; x < tags.length; x++)
-                if (tags[x] === keyword) {
-                    x++;
-                    filteredImg.push(imgObj)
+        imgObj.keywords.forEach(function (keyword) {;
+            for (var x = 0; x < gTags.length; x++) {
+                if (gTags[x] === keyword) {
+                    if (!filteredImg.find(function (img) {
+                        return img === imgObj
+                    }))
+                    filteredImg.push(imgObj);
                 }
+            }
         })
     })
     renderImgs(filteredImg);
