@@ -1,3 +1,61 @@
 button {
-  color: blue;  
+    border-radius: 5px;
+    background-color: darkgray;
+    font-family: var(--secondary-font);
 }
+
+.edit-container {
+    padding-top: 60px;
+}
+.saveMeme {
+    background-image: url(../assets/img/genrateMeme.png);
+    height: 80px;
+    width: 80px;
+    background-size: contain;
+    background-position: center;
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.add-txt {
+    height: 80px;
+    width: 80px;
+    display: block;
+    margin: 20px auto;
+    font-size: 40px;
+}
+
+.text-editor {
+    text-align: center;
+}
+
+.arrows {
+    padding: 1px;
+    display: block;
+    min-width: 105px;
+    button:first-child {
+        color: blue;
+        display: block;
+        margin: auto;
+    }
+    
+}
+
+.edit-buttons {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    input:first-child {
+        display: block;
+        width: 100%;
+    }
+}
+
+.text-align {
+    display: inline-block;
+}
+

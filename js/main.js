@@ -66,26 +66,34 @@ function renderTxtEditors() {
 
     var strHtml = '';
     for (var i = 0; i < gState.txts.length; i++) {
+           
         strHtml += ` 
         <div class="text-editor">
-          <input type="text" id="top-text:${i}" placeholder="Enter top text here" oninput="updateTxts(this, ${i})">
           <div class="edit-buttons">
-            <button onclick="deleteText('top-text:${i}', ${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-            <select oninput="changeFont(this, ${i})">
-            <option value="sans">Sans</option>
-            <option value="Arial">Arial</option>
-            <option value="AvantGarde">Avant Garde</option>
-          </select>
-            <button onclick="increaseFont(${i})">Size +</button>
-            <button onclick="decreaseFont(${i})">Size -</button>
-            <input oninput="changeColor(this, ${i})" type="color">
-            <button onclick="txtAlignleft(${i})"><i class="fa fa-align-left" aria-hidden="true"></i></button>
-            <button onclick="txtAlignCenter(${i})"><i class="fa fa-align-center" aria-hidden="true"></i></button>
-            <button onclick="txtAlignRight(${i})"><i class="fa fa-align-right" aria-hidden="true"></i></button>
-            <button onclick="moveRight(${i})"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-            <button onclick="moveLeft(${i})"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-            <button onclick="moveUp(${i})"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
-            <button onclick="moveDown(${i})"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+          
+            <div class="text-and-fonts">
+                <input type="text" id="top-text:${i}" value="${gState.txts[i].txt}" placeholder="Enter text here" oninput="updateTxts(this, ${i})">
+                <button onclick="deleteText('top-text:${i}', ${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                <select oninput="changeFont(this, ${i})">
+                    <option value="sans">Sans</option>
+                    <option value="Arial">Arial</option>
+                    <option value="AvantGarde">Avant Garde</option>
+                </select>
+                <button onclick="fontSizeChange(${i}, 1)"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+                <button onclick="fontSizeChange(${i}, 0)"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
+                <input class="color-picker" oninput="changeColor(this, ${i})" type="color">
+                <div class="text-align">
+                    <button onclick="txtAlign(${i}, 'left')"><i class="fa fa-align-left" aria-hidden="true"></i></button>
+                    <button onclick="txtAlign(${i}, 'center')"><i class="fa fa-align-center" aria-hidden="true"></i></button>
+                    <button onclick="txtAlign(${i}, 'right')"><i class="fa fa-align-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+             <div class="arrows">
+                <button onclick="moveText(${i}, 'up')"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+                <button onclick="moveText(${i}, 'left')"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                <button onclick="moveText(${i}, 'down')"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+                <button onclick="moveText(${i}, 'right')"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
           </div>
         </div>`
     }
@@ -111,8 +119,9 @@ function renderImgs() {
 }
 
 function displayMemeEditor(imageId) {
-    console.log(imageId);
+    var elSearchCont = document.querySelector('.search-container'); 
     gElImgBoard.style.display = 'none';
+    elSearchCont.style.display = 'none';
     gElEditContainer.style.display = 'flex';
     gState.selectedImgId = imageId;
     drawCanvas();
@@ -147,14 +156,12 @@ function drawCanvasWithText() {
     }
 }
 
-function increaseFont(idx) {
-    gState.txts[idx].fontSize++
+function fontSizeChange(idx, sizeChange) {
+    if (sizeChange === 1) gState.txts[idx].fontSize++
+    else                  gState.txts[idx].fontSize--
     drawCanvasWithText();
 }
-function decreaseFont(idx) {
-    gState.txts[idx].fontSize--
-    drawCanvasWithText();
-}
+
 
 function deleteText(inputId, idx) {
     document.getElementById(`${inputId}`).value = '';
@@ -167,39 +174,40 @@ function changeColor(elColorPicker, idx) {
     drawCanvasWithText();
 }
 
-function txtAlignleft(idx) {
-    gState.txts[idx].textAlign = 'left';
-    gState.txts[idx].textStartPointW = 5;
+function txtAlign(idx , alignInput) {
+    switch (alignInput) {
+        case 'left':
+            gState.txts[idx].textAlign = 'left';
+            gState.txts[idx].textStartPointW = 5;
+            break;
+        case 'right':
+            gState.txts[idx].textAlign = 'right';
+            gState.txts[idx].textStartPointW = gElMemeCanvas.width -5;
+            break;
+        case 'center':
+            gState.txts[idx].textAlign = 'center';
+            gState.txts[idx].textStartPointW = gElMemeCanvas.width / 2;;
+            break;
+    }
     drawCanvasWithText();
 }
 
-function txtAlignRight(idx) {
-    gState.txts[idx].textAlign = 'right';
-    gState.txts[idx].textStartPointW = gElMemeCanvas.width - 5;
-    drawCanvasWithText();
-}
-
-function txtAlignCenter(idx) {
-    gState.txts[idx].textAlign = 'center';
-    gState.txts[idx].textStartPointW = gElMemeCanvas.width / 2;
-    drawCanvasWithText();
-}
-
-function moveRight(idx) {
-    gState.txts[idx].textStartPointW++
-    drawCanvasWithText();
-}
-
-function moveLeft(idx) {
-    gState.txts[idx].textStartPointW--
-    drawCanvasWithText();
-}
-function moveUp(idx) {
-    gState.txts[idx].textStartPointH--
-    drawCanvasWithText();
-}
-function moveDown(idx) {
-    gState.txts[idx].textStartPointH++
+function moveText(idx, direction) {
+    switch (direction) {
+        case 'right':
+            gState.txts[idx].textStartPointW++
+            break;
+        case 'left':
+            gState.txts[idx].textStartPointW--
+            break;
+        case 'up':
+            gState.txts[idx].textStartPointH--
+            break;
+        case 'down':
+            gState.txts[idx].textStartPointH++
+            break;
+    }
+    
     drawCanvasWithText();
 }
 
