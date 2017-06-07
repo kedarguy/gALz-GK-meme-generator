@@ -12,79 +12,79 @@
   <div class="container">
     <nav>
       <div class="logo"><img src="assets/icons/logo.png" alt="logo"></div>
-      <img <div class="link-list">
-      <ul>
-        <li><a href="">Portfolio</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Blog</a></li>
-        <li><a href="">Get In Touch</a></li>
-      </ul>
-  </div>
-  </nav>
+      <div class="link-list">
+        <ul>
+          <li><a href="">Portfolio</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Blog</a></li>
+          <li><a href="">Get In Touch</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <main>
-    <div class="imgs-container">
+    <main>
+      <div class="imgs-container">
 
-    </div>
+      </div>
 
-    <div class="edit-container">
-      <canvas id="memeCanvas"></canvas>
-      <button onclick="saveImage()">Save</button>
+      <div class="edit-container">
+        <canvas id="memeCanvas"></canvas>
+        <button onclick="saveImage()">Save</button>
 
-      <div class="text-editor">
-        <input type="text" id="top-text" placeholder="Enter top text here" oninput="updateTxts(this, 0)">
-        <div class="edit-buttons">
-          <button onclick="deleteText('top-text', 0)">delete</button>
-          <select oninput="changeFont(this, 0)">
+        <div class="text-editor">
+          <input type="text" id="top-text" placeholder="Enter top text here" oninput="updateTxts(this, 0)">
+          <div class="edit-buttons">
+            <button onclick="deleteText('top-text', 0)">delete</button>
+            <select oninput="changeFont(this, 0)">
             <option value="sans">Sans</option>
             <option value="Arial">Arial</option>
             <option value="AvantGarde">Avant Garde</option>
           </select>
-          <button onclick="increaseFont(0)">Size +</button>
-          <button onclick="decreaseFont(0)">Size -</button>
-          <input oninput="changeColor(this, 0)" type="color">
-          <button onclick="txtAlignleft(0)">txt align left</button>
-          <button onclick="txtAlignCenter(0)">txt align center</button>
-          <button onclick="txtAlignRight(0)">txt align right</button>
-          <button onclick="moveRight(0)">right</button>
-          <button onclick="moveLeft(0)">left</button>
-          <button onclick="moveUp(0)">up</button>
-          <button onclick="moveDown(0)">down</button>
+            <button onclick="increaseFont(0)">Size +</button>
+            <button onclick="decreaseFont(0)">Size -</button>
+            <input oninput="changeColor(this, 0)" type="color">
+            <button onclick="txtAlignleft(0)">txt align left</button>
+            <button onclick="txtAlignCenter(0)">txt align center</button>
+            <button onclick="txtAlignRight(0)">txt align right</button>
+            <button onclick="moveRight(0)">right</button>
+            <button onclick="moveLeft(0)">left</button>
+            <button onclick="moveUp(0)">up</button>
+            <button onclick="moveDown(0)">down</button>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <section class="about-us">
-    <div class="inner-about-us">
-      <h1>About Us</h1>
+    <section class="about-us">
+      <div class="inner-about-us">
+        <h1>About Us</h1>
 
-    </div>
-
-  </section>
-
-  <section class="contact-info">
-    <div class="inner-contact-info">
-      <h4>Get In Touch</h4>
-      <p>In order to get in touch use the contact from below and Ilan will get back to you shortley</p>
-      <div class="contact-body">
-        <form class="contact-form" id="contact-form" onsubmit="contactForm(event)">
-          <input type="text" id="name" name="name" placeholder="Name (required)" required/>
-          <input type="email" id="email" name="email" placeholder="Email (required)" />
-          <input type="subject" id="subject" name="subject" placeholder="Subject" />
-          <input type="message" id="message" name="message" placeholder="Write you messege here..." />
-          <input type="submit" value="Submit" id="submit">
-        </form>
-        <aside class=contact-info>
-          <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-          <br>
-          <br>
-          <p>blah blah blah blah </p>
-        </aside>
       </div>
-    </div>
 
-  </section>
+    </section>
+
+    <section class="contact-info">
+      <div class="inner-contact-info">
+        <h4>Get In Touch</h4>
+        <p>In order to get in touch use the contact from below and Ilan will get back to you shortley</p>
+        <div class="contact-body">
+          <form class="contact-form" id="contact-form" onsubmit="contactForm(event)">
+            <input type="text" id="name" name="name" placeholder="Name (required)" required/>
+            <input type="email" id="email" name="email" placeholder="Email (required)" />
+            <input type="subject" id="subject" name="subject" placeholder="Subject" />
+            <input type="message" id="message" name="message" placeholder="Write you messege here..." />
+            <input type="submit" value="Submit" id="submit">
+          </form>
+          <aside class=contact-info>
+            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+            <br>
+            <br>
+            <p>blah blah blah blah </p>
+          </aside>
+        </div>
+      </div>
+
+    </section>
 
 
   </div>
