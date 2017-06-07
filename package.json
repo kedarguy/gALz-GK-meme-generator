@@ -15,6 +15,18 @@
     "npm-run-all": "^3.1.1"
   },
   "dependencies": {
+    "d3": "^4.9.1",
+    "d3-cloud": "^1.2.4",
     "normalize.css": "^5.0.0"
-  }
+  },
+  "description": "Our challange was to create a mobile-first meme generator using a provided PSD template from the client.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kedarguy/gALz-GK-meme-generator.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/kedarguy/gALz-GK-meme-generator/issues"
+  },
+  "homepage": "https://github.com/kedarguy/gALz-GK-meme-generator#readme"
 }
