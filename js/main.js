@@ -238,7 +238,6 @@ function createTagIdx () {
             
         })
     })
-    debugger;
     for (var keyword in tagIdx) {
         var currObj = {name:keyword, imgs:tagIdx[keyword]}
         tagIdxs.push(currObj); 
@@ -251,6 +250,6 @@ function addTagToInput (tag) {
     gElSearchByTag.value += ' ';
 }
 
-// function filterByTag (tag) {
-//     var filteredImgs
-// }
+function filterByTag (tag) {
+    console.log(tag);
+}
