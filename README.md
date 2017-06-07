@@ -1,9 +1,17 @@
-# SPRINT 2
+#Sprint 2 Challenge
+##Ultimate Meme Creator
 
-git page:
+Our challange was to create a mobile-first meme generator using a provided PSD template from the client.
 
-https://kedarguy.github.io/gALz-GK-meme-generator/
+###git page:
+
+You can check out the result at [GitHub Pages](https://kedarguy.github.io/gALz-GK-meme-generator/).
+
 
 Enjoy!
+
+####Contributors:
+- Guy Keday :bowtie:
+- gALz Aviv :octocat:
 
 ![Alt](http://i.imgur.com/lrIBZFe.png "logo")
