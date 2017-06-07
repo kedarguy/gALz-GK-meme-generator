@@ -11,7 +11,7 @@ You can check out the result at [GitHub Pages](https://kedarguy.github.io/gALz-G
 Enjoy!
 
 ####Contributors:
-- Guy Keday :bowtie:
-- gALz Aviv :octocat:
+- Guy :bowtie:
+- gALz :octocat:
 
 ![Alt](http://i.imgur.com/lrIBZFe.png "logo")
