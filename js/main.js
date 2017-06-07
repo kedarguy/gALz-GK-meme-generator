@@ -70,7 +70,7 @@ function renderTxtEditors() {
         <div class="text-editor">
           <input type="text" id="top-text:${i}" placeholder="Enter top text here" oninput="updateTxts(this, ${i})">
           <div class="edit-buttons">
-            <button onclick="deleteText('top-text:${i}', ${i})">delete</button>
+            <button onclick="deleteText('top-text:${i}', ${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             <select oninput="changeFont(this, ${i})">
             <option value="sans">Sans</option>
             <option value="Arial">Arial</option>
@@ -79,13 +79,13 @@ function renderTxtEditors() {
             <button onclick="increaseFont(${i})">Size +</button>
             <button onclick="decreaseFont(${i})">Size -</button>
             <input oninput="changeColor(this, ${i})" type="color">
-            <button onclick="txtAlignleft(${i})">txt align left</button>
-            <button onclick="txtAlignCenter(${i})">txt align center</button>
-            <button onclick="txtAlignRight(${i})">txt align right</button>
-            <button onclick="moveRight(${i})">right</button>
-            <button onclick="moveLeft(${i})">left</button>
-            <button onclick="moveUp(${i})">up</button>
-            <button onclick="moveDown(${i})">down</button>
+            <button onclick="txtAlignleft(${i})"><i class="fa fa-align-left" aria-hidden="true"></i></button>
+            <button onclick="txtAlignCenter(${i})"><i class="fa fa-align-center" aria-hidden="true"></i></button>
+            <button onclick="txtAlignRight(${i})"><i class="fa fa-align-right" aria-hidden="true"></i></button>
+            <button onclick="moveRight(${i})"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            <button onclick="moveLeft(${i})"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+            <button onclick="moveUp(${i})"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+            <button onclick="moveDown(${i})"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
           </div>
         </div>`
     }

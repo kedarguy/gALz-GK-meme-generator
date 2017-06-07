@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gALz-GK-Meme-Generator</title>
+  <link rel="stylesheet" href="assets\fonts\font-awesome\css\font-awesome.min.css">
   <link rel="stylesheet" href="dist/style.css">
 </head>
 
@@ -27,14 +28,14 @@
     <div class="imgs-container">
     </div>
 
-    <div class="search-container">
-        <input id="filter" type="text" onkeyup="generateTagCloud()" placeholder="Type a Tag..." />
+    <!--<div class="search-container">
+        <button onclick="generateTagCloud()">Show tags</button>
         <div id="cloud"></div>
-    </div>
+    </div>-->
 
     <div class="edit-container">
       <canvas id="memeCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
-      <button onclick="saveImage()">Save</button>
+      <button onclick="saveImage()"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
       <button onclick="addTxt()">Add Text</button>
           <section class="canvas-edit-area">
             
@@ -84,10 +85,10 @@
 
   </div>
 
-        <script src="./node_modules/d3/d3.min.js"></script>
+        <!--<script src="./node_modules/d3/d3.min.js"></script>
         <script src="./node_modules/d3-cloud/build/d3.layout.cloud.js"></script>
         <script src="./node_modules/lodash/lodash.min.js"></script>
-        <script src="js/tagscloud.js"></script>
+        <script src="js/tagscloud.js"></script>-->
         <script src="js/main.js"></script>
   <footer>
     © gALz & GK
