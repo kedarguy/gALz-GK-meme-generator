@@ -5,28 +5,53 @@ nav {
     font-family: var(--primary-font);
     font-size: 16px;
     font-weight: 700;
-    line-height: 5px;
     text-transform: uppercase;
-    text-align: center;
     vertical-align: center;
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .link-list {
-        width: 100%;
+    ul {
+        height: 100%;
+    }
+    .menu {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        
-        ul {
-            li {
-                display: inline-flex;
-                padding-left: 5px;
-                padding-right: 5px;
-            }
+        text-align: center;
+        height: 100%;
+        list-style-type:none;
+        a {
+            height: 100%;
+            letter-spacing: 0.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: rem(16px);
+            transition: color 0.5s;
+            width: rem(130px);
+        } 
+        img {
+            position: relative;
+            top: 66px;
+            width: 120%;
+            height: 120%;
         }
+        li {
+            text-align: center;
+            width: rem(130px);
+            }
+            
+        li:hover {
+            color: yellow;
+        }
+    }
+}
 
+.hide-nav {
+    position: relative;
+    top: -140px;
+    -webkit-transition: all 0.5s ease;
+    &:hover {
+        top: 0px;
+        -webkit-transition: all 0.5s ease
     }
 }
