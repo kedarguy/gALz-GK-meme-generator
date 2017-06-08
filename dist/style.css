@@ -563,6 +563,18 @@ img {
     width: 15%;
     margin: auto; }
 
+.hide-nav-and-pointer {
+  position: relative;
+  top: -40px;
+  -webkit-transition: all 0.5s ease; }
+
+.nav-and-pointer {
+  width: 100%; }
+
+.nav-and-pointer:hover {
+  top: 0px;
+  -webkit-transition: all 0.5s ease; }
+
 main {
   width: 100%;
   min-height: 700px;
