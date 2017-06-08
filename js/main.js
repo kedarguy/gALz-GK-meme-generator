@@ -3,7 +3,7 @@
 var gTags = [];
 var gImgBank = [
     { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child', 'rakefet', 'cool', 'image'] },
-    { url: 'https://i.imgflip.com/cq63t.jpg?a415728', desc: 'drevil', id: 1, keywords: ['evil', 'celeb', 'cool', 'image'] },
+    { url: 'https://imgflip.com/s/meme/Picard-Wtf.jpg', desc: 'picard', id: 1, keywords: ['picard', 'celeb', 'cool', 'image'] },
     { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump', 'celeb', 'image'] },
     { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: ['celeb', 'image'] },
     { url: 'https://i.imgflip.com/1hdqwp.jpg?a415632', desc: 'salt', id: 4, keywords: ['salt', 'image'] },
@@ -26,6 +26,8 @@ var gElTextInput;
 var gState;
 // var gElSearchByTag;
 var gElTagFilter;
+var gElNavCont;
+
 
 function init() {
     gElImgBoard = document.querySelector('.inner-imgs-container');
@@ -34,6 +36,7 @@ function init() {
     gElTextInput = document.querySelector('.text-input');
     // gElSearchByTag = document.querySelector('#search-by-tag');
     gElTagFilter = document.querySelector('.tag-filter-wrapper');
+    gElNavCont = document.querySelector('.nav-container');
     gState = {
         txts: [
             {
@@ -180,6 +183,7 @@ function getNumOfRows(numOfEls, maxElPerRow) {
 
 function displayMemeEditor(imageId) {
     var elSearchCont = document.querySelector('.search-container');
+    gElNavCont.classList.add("hide-nav");
     gElImgBoard.style.display = 'none';
     elSearchCont.style.display = 'none';
     gElEditContainer.style.display = 'flex';
@@ -193,11 +197,27 @@ function drawCanvas() {
     var currImageObj = gImgBank.find(function (image) {
         return image.id === gState.selectedImgId
     });
+    var size;
     var elImage = new Image();
+    elImage.addEventListener("load", function () {
+        var imgWidth = this.naturalWidth;
+        var imgHeight = this.naturalHeight;
+        // if (gElMemeCanvas.scrollWidth < imgWidth) {
+        //     imgWidth = gElMemeCanvas.scrollWidth;
+        //     imgHeight = gElMemeCanvas.scrollHeight; 
+        // }
+        // if (gElMemeCanvas.scrollHeight < imgHeight) {
+        //     imgHeight = gElMemeCanvas.scrollHeight; 
+        // }
+        var ctx = gElMemeCanvas.getContext("2d");   
+        imgWidth = imgWidth/gElMemeCanvas.scrollWidth*gElMemeCanvas.width;
+        imgHeight =imgHeight/gElMemeCanvas.scrollHeight*gElMemeCanvas.height;
+        ctx.drawImage(elImage, 0, 0, imgWidth, imgHeight);
+    });
+    console.log(size);
     elImage.src = gImgBank[gState.selectedImgId].url;
-    var ctx = gElMemeCanvas.getContext("2d");
-    ctx.drawImage(elImage, 0, 0, gElMemeCanvas.width, gElMemeCanvas.height);
 }
+
 
 function updateTxts(elInput, idx) {
     gState.txts[idx].txt = elInput.value;

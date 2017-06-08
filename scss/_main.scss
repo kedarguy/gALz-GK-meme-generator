@@ -6,11 +6,11 @@ main {
     padding-left: 20px;
     padding-top: 0;
     padding-bottom: 89px;
-
     display: flex;
     flex-direction: column;
-
 }
+
+
 
 .imgs-container {
         padding-top: 131px;
@@ -87,8 +87,8 @@ main {
     }
 
    canvas {
-       width: 100%;
-       min-height: 300px;
+    //    width: 100%;
+    //    min-height: 300px;
        border: 1px solid blue;
    }
 

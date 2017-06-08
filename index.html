@@ -11,16 +11,14 @@
 
 <body onload="init()">
   <div class="container">
-    <nav>
-      <div class="logo"><img src="assets/icons/logo.png" alt="logo"></div>
-      <div class="link-list">
-        <ul>
+    <nav class="nav-container">
+        <ul class="menu">
           <li><a href="">Portfolio</a></li>
           <li><a href="">About</a></li>
+          <li><a href=""><img src="assets/icons/logo.png" alt="logo"></a></li>
           <li><a href="">Blog</a></li>
           <li><a href="">Get In Touch</a></li>
         </ul>
-      </div>
     </nav>
 
 
@@ -48,7 +46,7 @@
 
 
       <div class="edit-container">
-        <canvas id="memeCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+        <canvas id="memeCanvas" width=500 height=500>Your browser does not support the HTML5 canvas tag.</canvas>
         <section class="add-txt-or-props">
           <button onclick="addTxt()" class="add-txt"><i class="fa fa-plus" aria-hidden="true"></i></button>
           <button onclick="saveImage()" class="saveMeme"></button>
