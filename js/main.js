@@ -183,7 +183,9 @@ function getNumOfRows(numOfEls, maxElPerRow) {
 
 function displayMemeEditor(imageId) {
     var elSearchCont = document.querySelector('.search-container');
+    var elImgsCont = document.querySelector('.imgs-container');
     gElNavCont.classList.add("hide-nav");
+    elImgsCont.style.display = 'none';
     gElImgBoard.style.display = 'none';
     elSearchCont.style.display = 'none';
     gElEditContainer.style.display = 'flex';
