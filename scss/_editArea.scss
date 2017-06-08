@@ -5,15 +5,15 @@ button {
 }
 
 canvas {
-    max-width: 200px;
-    max-height: 200px;
+    width: 200px;
+    height: 200px;
     margin: auto;
 }
 
-@media (min-width: var(--mobile-brakpoint)) {
+@media (min-width: 450px) {
     canvas {
-    max-width: 400px;
-    max-height: 400px;
+    width: 400px;
+    height: 400px;
     margin: auto;
 }
 }

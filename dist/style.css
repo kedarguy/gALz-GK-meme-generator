@@ -716,14 +716,14 @@ button {
   font-family: var(--secondary-font); }
 
 canvas {
-  max-width: 200px;
-  max-height: 200px;
+  width: 200px;
+  height: 200px;
   margin: auto; }
 
-@media (min-width: var(--mobile-brakpoint)) {
+@media (min-width: 450px) {
   canvas {
-    max-width: 400px;
-    max-height: 400px;
+    width: 400px;
+    height: 400px;
     margin: auto; } }
 
 .edit-container {
@@ -796,16 +796,17 @@ canvas {
     .edit-container .text-ixnput input {
       width: 100%; }
 
-.tagscloud {
-  display: block;
-  margin: auto;
-  width: 70vw; }
+.search-container {
+  width: 100%; }
+  .search-container svg {
+    display: block;
+    margin: auto;
+    width: 92vw; }
 
 .tag-filter-wrapper {
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  height: 40px;
+  width: 80%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -829,7 +830,7 @@ canvas {
     text-shadow: 0 1px 0 #FFFFFF;
     overflow: hidden;
     position: relative;
-    width: 20%;
+    min-width: 20%;
     height: 100%;
     padding: 4px 8px;
     margin: 3px; }
@@ -839,12 +840,20 @@ canvas {
       display: block;
       text-overflow: clip; }
     .tag-filter-wrapper .tag-filter .close-tag:before {
-      content: '✖';
+      content: '❌';
       font-size: 10px; }
     .tag-filter-wrapper .tag-filter .close-tag {
       position: absolute;
       top: -4px;
       right: 3px;
       cursor: pointer; }
+
+.search-img {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 30px; }
 
 /* Components */
