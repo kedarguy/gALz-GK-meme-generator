@@ -2,21 +2,38 @@
 
 var gTags = [];
 var gImgBank = [
-    { url: 'https://imgflip.com/s/meme/Evil-Toddler.jpg', desc: 'evil-child', id: 0, keywords: ['child', 'rakefet', 'cool', 'image'] },
-    { url: 'https://imgflip.com/s/meme/Picard-Wtf.jpg', desc: 'picard', id: 1, keywords: ['picard', 'celeb', 'cool', 'image'] },
-    { url: 'http://cdn-02.belfasttelegraph.co.uk/incoming/article35779972.ece/3886b/AUTOCROP/w620/Donald-Trump.jpg', desc: 'trump', id: 2, keywords: ['trump', 'celeb', 'image'] },
-    { url: 'http://i0.kym-cdn.com/photos/images/newsfeed/000/210/116/youdontsay.jpg', desc: 'youdontsay', id: 3, keywords: ['celeb', 'image'] },
-    { url: 'https://i.imgflip.com/1hdqwp.jpg?a415632', desc: 'salt', id: 4, keywords: ['salt', 'image'] },
-    { url: 'https://i.imgflip.com/1pwxa5.jpg', desc: 'golum', id: 5, keywords: ['golum', 'rakefet'] },
-    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U529YD0E9-deac2872f743-512' ,desc: 'rakef', id: 10, keywords:[]},
-    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U4ZCWULQH-5dba29cdc46d-512' ,desc: 'ilan', id: 6, keywords:[]},
-    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U508P149K-bd68ecba269e-512' ,desc: 'dor', id: 7, keywords:[]},
-    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U50JWF5PF-g8169be4ae78-512' ,desc: 'yaron', id: 8, keywords:[]},
-    // { url: 'https://ca.slack-edge.com/T4Z64K5JM-U50UEPNJH-g648a8e5dcf7-512' ,desc: 'tamir', id: 9, keywords:[]}
-    // {url: 'https://goo.gl/photos/WxCs2rQVs3qskH3BA' ,desc: 'oren', id: 11, keywords:[]},
-    // {url: 'https://goo.gl/photos/WxCs2rQVs3qskH3BA' ,desc: 'oren', id: 12, keywords:[]},
-    // {url: 'https://goo.gl/photos/WxCs2rQVs3qskH3BA' ,desc: 'oren', id: 13, keywords:[]},
-    // {url: 'https://goo.gl/photos/WxCs2rQVs3qskH3BA' ,desc: 'oren', id: 14, keywords:[]}
+    { url: 'assets/img/ilan.png', desc: 'ilan', id: 0, keywords: ['class', 'code', 'coding_academy'] },
+    { url: 'assets/img/rakef.png', desc: 'rakefet', id: 1, keywords: ['class', 'code', 'coding_academy'] },
+    { url: 'assets/img/tamir.png', desc: 'tamir', id: 2, keywords: ['class', 'code', 'coding_academy'] },
+    { url: 'assets/img/yaron.png', desc: 'yaron', id: 3, keywords: ['famous', 'coding_academy'] },
+    { url: 'assets/img/erez.png', desc: 'erez', id: 4, keywords: ['animals', 'coding_academy'] },
+    { url: 'assets/img/dor.jpg', desc: 'dor', id: 5, keywords: ['baby', 'cute', 'coding_academy'] },
+    { url: 'assets/img/BrianGriffin.jpg', desc: 'Brian', id: 6, keywords: ['familyguy', 'brian'] },
+    { url: 'assets/img/baby.jpg', desc: 'baby1', id: 7, keywords: ['baby', 'cute'] },
+    { url: 'assets/img/baby2.jpg', desc: 'baby2', id: 8, keywords: ['baby'] },
+    { url: 'assets/img/baby3.jpg', desc: 'baby3', id: 9, keywords: ['baby', 'cute'] },
+    { url: 'assets/img/cat.png', desc: 'cat', id: 10, keywords: ['cut'] },
+    { url: 'assets/img/ChuckNorris.jpg', desc: 'ChuckNorris', id: 11, keywords: ['norrris', 'guns', 'movies'] },
+    { url: 'assets/img/Cute-Cat.jpg', desc: 'cat', id: 12, keywords: ['cute', 'cat','animals'] },
+    { url: 'assets/img/Deadpool.jpg', desc: 'Deadpool', id: 13, keywords: ['deadpool'] },
+    { url: 'assets/img/Dexter.jpg', desc: 'Dexter', id: 14, keywords: ['dexter'] },
+    { url: 'assets/img/dog.png', desc: 'oredogn', id: 15, keywords: ['dog','animals'] },
+    { url: 'assets/img/evil.png', desc: 'drevil', id: 16, keywords: ['evil','movies'] },
+    { url: 'assets/img/Jammin-Baby.jpg', desc: 'Jammin-Baby', id: 17, keywords: ['baby'] },
+    { url: 'assets/img/oren.jpg', desc: 'oren', id: 18, keywords: ['oren', 'hazan'] },
+    { url: 'assets/img/orenHazan.jpg', desc: 'orenHazan', id: 19, keywords: ['oren', 'hazan'] },
+    { url: 'assets/img/pikachu-pokemon-nintendo.jpg', desc: 'pikachu', id: 20, keywords: ['pokemon'] },
+    { url: 'assets/img/Sad-Baby.jpg', desc: 'baby4', id: 21, keywords: ['baby', 'sad'] },
+    { url: 'assets/img/salt.png', desc: 'salt', id: 22, keywords: ['salt'] },
+    { url: 'assets/img/shauli.jpg', desc: 'shauli', id: 23, keywords: ['shauli'] },
+    { url: 'assets/img/Skeptical-Baby.jpg', desc: 'Skeptical', id: 24, keywords: ['baby'] },
+    { url: 'assets/img/sparta.png', desc: 'sparta', id: 25, keywords: ['sparta','movies'] },
+    { url: 'assets/img/Spiderman-Camera.jpg', desc: 'Spiderman1', id: 26, keywords: ['spiderman','animals'] },
+    { url: 'assets/img/Spiderman-Hospital.jpg', desc: 'Spiderman2', id: 27, keywords: ['spiderman','animals'] },
+    { url: 'assets/img/Surprised-Koala.jpg', desc: 'Koala', id: 28, keywords: ['koala', 'animals'] },
+    { url: 'assets/img/trump.jpg', desc: 'trump', id: 29, keywords: ['trump', 'president','famous'] },
+    { url: 'assets/img/yoda.png', desc: 'yoda', id: 30, keywords: ['yoda', 'movies'] },
+    { url: 'assets/img/youdontsay.jpg', desc: 'youdontsay', id: 31, keywords: ['movies'] }
 ]
 
 var gElImgBoard;
@@ -112,18 +129,18 @@ function renderTxtEditors() {
 }
 
 
-function renderImgs(imgs) { 
+function renderImgs(imgs) {
     var numOfEls = imgs.length;
     //if we want to change size of imgs we need to connect widthOfEl to the new size
     var widthOfEl = 180;
-    var emptyDivHtmlStr = `<div class="empty-div" style="width: ${widthOfEl/2}px;"></div>`
+    var emptyDivHtmlStr = `<div class="empty-div" style="width: ${widthOfEl / 2}px;"></div>`
     var maxElPerRow = getMaxElPerRow(widthOfEl);
     console.log('max num of els:' + maxElPerRow);
     var numOfRows = getNumOfRows(numOfEls, maxElPerRow);
     console.log('num of rows:' + numOfRows);
     var rows = [];
     for (var i = 0; i < numOfRows; i++) {
-        var row = {rowStrHtml: `<div id="row-id-${i}" class="img-row" style="position: relative; top: ${-34 * i}px;">`, rowIdx: i, imgsInRow: 0};
+        var row = { rowStrHtml: `<div id="row-id-${i}" class="img-row" style="position: relative; top: ${-34 * i}px;">`, rowIdx: i, imgsInRow: 0 };
         rows.push(row);
     }
     var currRowIdx = 0;
@@ -150,11 +167,11 @@ function renderImgs(imgs) {
         currRow.rowStrHtml += strHtml;
         currRow.imgsInRow++
         //close last row div when after the last img
-        if (idx === imgs.length -1) currRow.rowStrHtml += '</div>'
+        if (idx === imgs.length - 1) currRow.rowStrHtml += '</div>'
     });
 
     var innerContHtmlStr = '';
-    rows.forEach(function (row){
+    rows.forEach(function (row) {
         innerContHtmlStr += row.rowStrHtml;
     });
     gElImgBoard.innerHTML = innerContHtmlStr;
@@ -162,10 +179,10 @@ function renderImgs(imgs) {
 
 
 function isRowFull(row, maxElPerRow) {
-    if (row.imgsInRow ===1 && maxElPerRow === 0)                           return true;
-    else if (row.rowIdx % 2 === 0 && row.imgsInRow === maxElPerRow -1)     return true;
-    else if ((row.rowIdx % 2 !== 0) && (row.imgsInRow === maxElPerRow) )    return true;
-    else                                                                    return false;
+    if (row.imgsInRow === 1 && maxElPerRow === 0) return true;
+    else if (row.rowIdx % 2 === 0 && row.imgsInRow === maxElPerRow - 1) return true;
+    else if ((row.rowIdx % 2 !== 0) && (row.imgsInRow === maxElPerRow)) return true;
+    else return false;
 }
 
 function getMaxElPerRow(widthOfEl) {
@@ -174,12 +191,12 @@ function getMaxElPerRow(widthOfEl) {
     var maxElPerRow = Math.floor(rowWidth / widthOfEl);
 
     if (maxElPerRow > 1) return maxElPerRow;
-    else                 return 0;
+    else return 0;
 }
 
 function getNumOfRows(numOfEls, maxElPerRow) {
-    if (maxElPerRow > 1)    return Math.ceil(numOfEls / (maxElPerRow - 0.5));
-    else                  return numOfEls;
+    if (maxElPerRow > 1) return Math.ceil(numOfEls / (maxElPerRow - 0.5));
+    else return numOfEls;
 }
 
 
@@ -215,9 +232,9 @@ function drawCanvas() {
         // if (gElMemeCanvas.scrollHeight < imgHeight) {
         //     imgHeight = gElMemeCanvas.scrollHeight; 
         // }
-        var ctx = gElMemeCanvas.getContext("2d");   
-        imgWidth = imgWidth/gElMemeCanvas.scrollWidth*gElMemeCanvas.width;
-        imgHeight =imgHeight/gElMemeCanvas.scrollHeight*gElMemeCanvas.height;
+        var ctx = gElMemeCanvas.getContext("2d");
+        imgWidth = imgWidth / gElMemeCanvas.scrollWidth * gElMemeCanvas.width;
+        imgHeight = imgHeight / gElMemeCanvas.scrollHeight * gElMemeCanvas.height;
         ctx.drawImage(elImage, 0, 0, imgWidth, imgHeight);
     });
     console.log(size);

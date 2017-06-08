@@ -626,7 +626,8 @@ main {
 
 .tagscloud {
   display: block;
-  margin: auto; }
+  margin: auto;
+  width: 70vw; }
 
 .thumbs {
   width: 180px; }
