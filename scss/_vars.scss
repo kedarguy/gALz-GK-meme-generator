@@ -1,8 +1,10 @@
 $container-width: 100%;
-$mobile-breakpoint: 642px;
+$mobile-breakpoint: 450px;
 $content-padding:100px;
 
 :root {
+  /* breakPoints */
+  --mobile-breakpoint: $mobile-breakpoint;
   /* Layout */
   --container-width: $container-width;
   --inner-container-width: 900px;

@@ -4,6 +4,20 @@ button {
     font-family: var(--secondary-font);
 }
 
+canvas {
+    max-width: 200px;
+    max-height: 200px;
+    margin: auto;
+}
+
+@media (min-width: var(--mobile-brakpoint)) {
+    canvas {
+    max-width: 400px;
+    max-height: 400px;
+    margin: auto;
+}
+}
+
 .edit-container {
     padding-top: 15px;
 }

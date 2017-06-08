@@ -41,8 +41,8 @@ function init() {
         txts: [
             {
                 txt: '',
-                fontSize: 26,
-                color: 'black',
+                fontSize: 46,
+                color: 'blue',
                 fontFamily: 'serif',
                 textAlign: 'center',
                 textStartPointW: gElMemeCanvas.width / 2,
@@ -205,9 +205,10 @@ function drawCanvas() {
     });
     var size;
     var elImage = new Image();
-    elImage.addEventListener("load", function () {
-        var imgWidth = this.naturalWidth;
-        var imgHeight = this.naturalHeight;
+    elImage.src = gImgBank[gState.selectedImgId].url;
+    // elImage.addEventListener("load", function () {
+    //     var imgWidth = this.naturalWidth;
+    //     var imgHeight = this.naturalHeight;
         // if (gElMemeCanvas.scrollWidth < imgWidth) {
         //     imgWidth = gElMemeCanvas.scrollWidth;
         //     imgHeight = gElMemeCanvas.scrollHeight; 
@@ -216,12 +217,10 @@ function drawCanvas() {
         //     imgHeight = gElMemeCanvas.scrollHeight; 
         // }
         var ctx = gElMemeCanvas.getContext("2d");   
-        imgWidth = imgWidth/gElMemeCanvas.scrollWidth*gElMemeCanvas.width;
-        imgHeight =imgHeight/gElMemeCanvas.scrollHeight*gElMemeCanvas.height;
-        ctx.drawImage(elImage, 0, 0, imgWidth, imgHeight);
-    });
-    console.log(size);
-    elImage.src = gImgBank[gState.selectedImgId].url;
+        // imgWidth = imgWidth/gElMemeCanvas.scrollWidth*gElMemeCanvas.width;
+        // imgHeight =imgHeight/gElMemeCanvas.scrollHeight*gElMemeCanvas.height;
+        ctx.drawImage(elImage, 0, 0, gElMemeCanvas.width, gElMemeCanvas.height);
+    // });
 }
 
 
@@ -279,18 +278,19 @@ function txtAlign(idx, alignInput) {
 }
 
 function moveText(idx, direction) {
+    var moveSize = 5;
     switch (direction) {
         case 'right':
-            gState.txts[idx].textStartPointW++
+            gState.txts[idx].textStartPointW += moveSize
             break;
         case 'left':
-            gState.txts[idx].textStartPointW--
+            gState.txts[idx].textStartPointW -= moveSize
             break;
         case 'up':
-            gState.txts[idx].textStartPointH--
+            gState.txts[idx].textStartPointH -= moveSize
             break;
         case 'down':
-            gState.txts[idx].textStartPointH++
+            gState.txts[idx].textStartPointH += moveSize
             break;
     }
 
