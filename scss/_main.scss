@@ -38,7 +38,7 @@ main {
      width: 100%;
      float: left;
 
-        &:not(:first-child) {
+        &:last-child {
          position: relative;
          top: -34px;
      }
@@ -46,13 +46,11 @@ main {
 
  .img-row > * {
      display: inline-block;
-     
-  
+       
  }
 
- .empty-div {
-     width: 90px;
- }
+
+
 
 //  .single-img {
 //     min-width: 180px;

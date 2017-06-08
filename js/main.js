@@ -52,6 +52,7 @@ function init() {
     };
     createTagIdx();
     renderImgs(gImgBank);
+    window.addEventListener('resize', filterByTag);
 
 }
 
@@ -111,18 +112,18 @@ function renderTxtEditors() {
 }
 
 
-function renderImgs(imgs) {
-
-    
+function renderImgs(imgs) { 
     var numOfEls = imgs.length;
+    //if we want to change size of imgs we need to connect widthOfEl to the new size
     var widthOfEl = 180;
+    var emptyDivHtmlStr = `<div class="empty-div" style="width: ${widthOfEl/2}px;"></div>`
     var maxElPerRow = getMaxElPerRow(widthOfEl);
     console.log('max num of els:' + maxElPerRow);
     var numOfRows = getNumOfRows(numOfEls, maxElPerRow);
     console.log('num of rows:' + numOfRows);
     var rows = [];
     for (var i = 0; i < numOfRows; i++) {
-        var row = {rowStrHtml: `<div id="row-id-${i}" class="img-row">`, rowIdx: i, imgsInRow: 0};
+        var row = {rowStrHtml: `<div id="row-id-${i}" class="img-row" style="position: relative; top: ${-34 * i}px;">`, rowIdx: i, imgsInRow: 0};
         rows.push(row);
     }
     var currRowIdx = 0;
@@ -134,10 +135,10 @@ function renderImgs(imgs) {
             currRowIdx++
             currRow = rows[currRowIdx];
             //if row is even add a empty div that will shift other divs right
-            if (currRow.rowIdx % 2 === 0) currRow.rowStrHtml += `<div class="empty-div">testemptydiv</div>`
+            if (currRow.rowIdx % 2 === 0 && currRow.rowIdx !== 1) currRow.rowStrHtml += emptyDivHtmlStr;
         }
 
-        if (idx === 0) currRow.rowStrHtml += `<div class="empty-div">testemptydiv</div>`
+        if (idx === 0) currRow.rowStrHtml += emptyDivHtmlStr;
         var strHtml = '';
         var hexId = imgs[idx].id;
         strHtml += `<svg class="thumbs" viewBox="0 0 100 100"><defs>`;
@@ -161,7 +162,8 @@ function renderImgs(imgs) {
 
 
 function isRowFull(row, maxElPerRow) {
-    if ((row.rowIdx % 2 === 0) && ((row.imgsInRow === maxElPerRow -1) || maxElPerRow === 1) )      return true;
+    if (row.imgsInRow ===1 && maxElPerRow === 0)                           return true;
+    else if (row.rowIdx % 2 === 0 && row.imgsInRow === maxElPerRow -1)     return true;
     else if ((row.rowIdx % 2 !== 0) && (row.imgsInRow === maxElPerRow) )    return true;
     else                                                                    return false;
 }
@@ -169,13 +171,15 @@ function isRowFull(row, maxElPerRow) {
 function getMaxElPerRow(widthOfEl) {
     var rowWidth = gElImgBoard.offsetWidth;
 
-    return Math.floor(rowWidth / widthOfEl);
+    var maxElPerRow = Math.floor(rowWidth / widthOfEl);
+
+    if (maxElPerRow > 1) return maxElPerRow;
+    else                 return 0;
 }
 
 function getNumOfRows(numOfEls, maxElPerRow) {
-    var numOfRows = numOfEls / (maxElPerRow - 0.5);
-    if (numOfRows > 1)    return Math.ceil(numOfRows);
-    else                  return 1;
+    if (maxElPerRow > 1)    return Math.ceil(numOfEls / (maxElPerRow - 0.5));
+    else                  return numOfEls;
 }
 
 
