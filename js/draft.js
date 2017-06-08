@@ -66,15 +66,7 @@ function createNewImgRow(currNumofRows, elWidth,) {
 //         }
 //     }
 
-//     .hide-nav {
-//         position: relative;
-//         top: -140px;
-//         -webkit-transition: all 0.5s ease;
-//         &:hover {
-//             top: 0px;
-//             -webkit-transition: all 0.5s ease
-//         }
-//     }
+
 // }
 // 
 
