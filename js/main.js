@@ -357,6 +357,7 @@ function addTagToInput(tag) {
 }
 
 function filterByTag() {
+    window.scrollTo(0, document.querySelector('.inner-imgs-container').offsetTop);
     if (gTags.length === 0) {
         renderImgs(gImgBank);
         renderTags();
