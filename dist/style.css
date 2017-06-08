@@ -550,10 +550,9 @@ li {
   width: 15%;
   list-style: none;
   text-align: center; }
-
-img {
-  width: 100%;
-  height: 90%; }
+  li img {
+    width: 100%;
+    height: 90%; }
 
 .pointy-div {
   width: 100%;
@@ -610,68 +609,8 @@ main {
 .img-row > * {
   display: inline-block; }
 
-.edit-container {
-  display: none;
-  flex-direction: column;
-  width: 100%;
-  min-height: 400px; }
-  .edit-container .text-input {
-    background: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    padding: 3px; }
-    .edit-container .text-input input {
-      width: 100%; }
-  .edit-container canvas {
-    border: 1px solid blue; }
-
-.tagscloud {
-  display: block;
-  margin: auto;
-  width: 70vw; }
-
 .thumbs {
   width: 180px; }
-
-.options-container {
-  text-align: center; }
-
-.options-container button {
-  width: 40vw;
-  display: inline-block;
-  text-align: center; }
-
-.search-img input {
-  display: block;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto; }
-
-.tag-filter-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  height: 40px;
-  border: 5px solid yellow; }
-  .tag-filter-wrapper .tag-filter {
-    background-color: turquoise;
-    border: 2px solid black;
-    position: relative;
-    width: 20%;
-    height: 100%;
-    padding-left: 5px;
-    margin-right: 5px;
-    display: inline-block; }
-    .tag-filter-wrapper .tag-filter .close-tag:before {
-      content: '✖';
-      font-size: 10px; }
-    .tag-filter-wrapper .tag-filter .close-tag {
-      position: absolute;
-      top: -4px;
-      right: 3px;
-      cursor: pointer; }
 
 .about-us {
   font: normal 1.3em "VT323", Helvetica, sans-serif;
@@ -830,5 +769,70 @@ canvas {
   width: 80px;
   background-size: contain;
   background-position: center; }
+
+.edit-container {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  min-height: 400px; }
+  .edit-container .text-ixnput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 3px; }
+    .edit-container .text-ixnput input {
+      width: 100%; }
+
+.tagscloud {
+  display: block;
+  margin: auto;
+  width: 70vw; }
+
+.tag-filter-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+  .tag-filter-wrapper .tag-filter {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    cursor: pointer;
+    border: none;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    font: normal normal bold 20px/40px "Baumans", Helvetica, sans-serif;
+    color: black;
+    text-overflow: clip;
+    background: #dddddd;
+    -webkit-box-shadow: 0 1px 0 0 #777777, 0 2px 0 0 #777777, 0 3px 0 0 #777777, 0 4px 0 0 #777777, 0 5px 0 0 #777777, 0 6px 0 0 #777777, 0 0 5px 0 rgba(0, 0, 0, 0.0980392), 0 1px 3px 0 rgba(0, 0, 0, 0.298039), 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.247059), 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.14902);
+    box-shadow: 0 1px 0 0 #777777, 0 2px 0 0 #777777, 0 3px 0 0 #777777, 0 4px 0 0 #777777, 0 5px 0 0 #777777, 0 6px 0 0 #777777, 0 0 5px 0 rgba(0, 0, 0, 0.0980392), 0 1px 3px 0 rgba(0, 0, 0, 0.298039), 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.247059), 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.14902);
+    text-shadow: 0 1px 0 #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    padding: 4px 8px;
+    margin: 3px; }
+    .tag-filter-wrapper .tag-filter:hover {
+      background: #FFFFFF; }
+    .tag-filter-wrapper .tag-filter .tag-text {
+      display: block;
+      text-overflow: clip; }
+    .tag-filter-wrapper .tag-filter .close-tag:before {
+      content: '✖';
+      font-size: 10px; }
+    .tag-filter-wrapper .tag-filter .close-tag {
+      position: absolute;
+      top: -4px;
+      right: 3px;
+      cursor: pointer; }
 
 /* Components */

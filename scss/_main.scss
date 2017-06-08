@@ -65,102 +65,10 @@ main {
        
  }
 
-
-
-
-//  .single-img {
-//     min-width: 180px;
-//     width: 180px;
-//     height: 180px;
-//     margin: 10px;
-
-//     img {
-//      width: 100%;
-//      height: 100%;
-//      }
-//  }
-
-.edit-container {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    min-height: 400px;
-
-    .text-input {
-        background: red;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-
-        padding: 3px;
-
-        input {
-            width:100%;
-        }
-    }
-
-   canvas {
-    //    width: 100%;
-    //    min-height: 300px;
-       border: 1px solid blue;
-   }
-
-}
-
-.tagscloud {
-    display: block;
-    margin: auto;
-    width: 70vw;
-}
-
 .thumbs {
   width: 180px;
 }
 
-.options-container {
-    text-align:center
-}
 
-.options-container button {
-    width: 40vw;
-    display: inline-block;
-    text-align: center;
-}
-
-.search-img input {
-    display: block;
-    width: 50%;    
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tag-filter-wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    height: 40px;
-    border: 5px solid yellow;
-        .tag-filter {
-            background-color: turquoise;
-            border: 2px solid black;
-            position: relative;            
-            width: 20%;
-            height: 100%;
-            padding-left: 5px;
-            margin-right: 5px;
-            display: inline-block;
-            .close-tag:before {
-                content: '✖';
-                font-size: 10px;
-            }
-            .close-tag {
-                position: absolute;
-                top: -4px;
-                right: 3px;
-                cursor: pointer;
-            }
-        }
-}
 
 

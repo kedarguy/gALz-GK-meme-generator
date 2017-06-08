@@ -387,7 +387,7 @@ function renderTags() {
     for (var i = 0; i < gTags.length; i++) {
         // var tagId = gTags[i];
         strHtml += `<div class="tag-filter filter-${i}">`;
-        strHtml += `${gTags[i]}`;
+        strHtml += `<div class="tag-text">${gTags[i]}</div>`;
         strHtml += `<span class="close-tag filter-${i}" onclick="closeFilter('${i}')"></span></div>`;
     }
     gElTagFilter.innerHTML = strHtml;

@@ -95,6 +95,25 @@ canvas {
     background-position: center; 
 }
     
+.edit-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    min-height: 400px;
+
+    .text-ixnput {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        padding: 3px;
+
+        input {
+            width:100%;
+        }
+    }
+}
 
   
 

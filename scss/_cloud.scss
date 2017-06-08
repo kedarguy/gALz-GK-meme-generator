@@ -1,0 +1,66 @@
+
+.tagscloud {
+    display: block;
+    margin: auto;
+    width: 70vw;
+}
+
+
+
+.tag-filter-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+        .tag-filter {
+         
+            display: inline-block;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            cursor: pointer;
+            
+            border: none;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+            font: normal normal bold 20px/40px "Baumans", Helvetica, sans-serif;
+            color: black;
+            text-overflow: clip;
+            background: rgb(221, 221, 221);
+            -webkit-box-shadow: 0 1px 0 0 rgb(119,119,119) , 0 2px 0 0 rgb(119,119,119) , 0 3px 0 0 rgb(119,119,119) , 0 4px 0 0 rgb(119,119,119) , 0 5px 0 0 rgb(119,119,119) , 0 6px 0 0 rgb(119,119,119) , 0 0 5px 0 rgba(0,0,0,0.0980392) , 0 1px 3px 0 rgba(0,0,0,0.298039) , 0 3px 5px 0 rgba(0,0,0,0.2) , 0 5px 10px 0 rgba(0,0,0,0.247059) , 0 10px 10px 0 rgba(0,0,0,0.2) , 0 20px 20px 0 rgba(0,0,0,0.14902) ;
+            box-shadow: 0 1px 0 0 rgb(119,119,119) , 0 2px 0 0 rgb(119,119,119) , 0 3px 0 0 rgb(119,119,119) , 0 4px 0 0 rgb(119,119,119) , 0 5px 0 0 rgb(119,119,119) , 0 6px 0 0 rgb(119,119,119) , 0 0 5px 0 rgba(0,0,0,0.0980392) , 0 1px 3px 0 rgba(0,0,0,0.298039) , 0 3px 5px 0 rgba(0,0,0,0.2) , 0 5px 10px 0 rgba(0,0,0,0.247059) , 0 10px 10px 0 rgba(0,0,0,0.2) , 0 20px 20px 0 rgba(0,0,0,0.14902) ;
+            text-shadow: 0 1px 0 #FFFFFF ;
+            overflow: hidden;
+            position: relative;            
+            width: 20%;
+            height: 100%;
+            padding: 4px 8px;
+            margin: 3px;
+
+            &:hover {
+                background: #FFFFFF;
+            }
+            
+            .tag-text {
+                display: block;
+                text-overflow: clip;
+            }
+           
+            .close-tag:before {
+                content: '✖';
+                font-size: 10px;
+            }
+            .close-tag {
+                position: absolute;
+                top: -4px;
+                right: 3px;
+                cursor: pointer;
+            }
+        }
+}
