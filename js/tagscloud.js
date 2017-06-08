@@ -22,7 +22,7 @@ function createTagsCloud(tagsIdx) {
     var minimgs = _.min(_.map(tagsIdx, 'imgs'));
     var maximgs = _.max(_.map(tagsIdx, 'imgs'));
 
-    var minfont = 18;
+    var minfont = 25;
     var maxfont = 35;
 
     var width = 800;
