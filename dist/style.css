@@ -623,6 +623,8 @@ main {
 
 .thumbs {
   width: 180px; }
+  .thumbs polygon {
+    cursor: pointer; }
 
 .about-us {
   font: normal 1.3em "VT323", Helvetica, sans-serif;
@@ -701,7 +703,8 @@ main {
     background-color: var(--about-color);
     color: white;
     width: 30%;
-    float: right; }
+    float: right;
+    cursor: pointer; }
   .contact-info .address {
     width: 100%;
     margin-top: 50px;
@@ -714,7 +717,8 @@ footer {
 button {
   border-radius: 5px;
   background-color: darkgray;
-  font-family: var(--secondary-font); }
+  font-family: var(--secondary-font);
+  cursor: pointer; }
 
 canvas {
   width: 200px;
