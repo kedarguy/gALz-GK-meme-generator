@@ -25,6 +25,35 @@ main {
 
  }
 
+ .inner-imgs-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     width: 100%;
+
+     
+ }
+
+ .img-row {
+     width: 100%;
+     float: left;
+
+        &:not(:first-child) {
+         position: relative;
+         top: -34px;
+     }
+ }
+
+ .img-row > * {
+     display: inline-block;
+     
+  
+ }
+
+ .empty-div {
+     width: 90px;
+ }
+
 //  .single-img {
 //     min-width: 180px;
 //     width: 180px;
@@ -71,7 +100,7 @@ main {
 }
 
 .thumbs {
-  width:180px;
+  width: 180px;
 }
 
 .options-container {

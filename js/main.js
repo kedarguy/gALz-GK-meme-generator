@@ -28,7 +28,7 @@ var gState;
 var gElTagFilter;
 
 function init() {
-    gElImgBoard = document.querySelector('.imgs-container');
+    gElImgBoard = document.querySelector('.inner-imgs-container');
     gElEditContainer = document.querySelector('.edit-container');
     gElMemeCanvas = document.querySelector('#memeCanvas');
     gElTextInput = document.querySelector('.text-input');
@@ -109,19 +109,74 @@ function renderTxtEditors() {
 
 
 function renderImgs(imgs) {
-    var strHtml = '';
-    for (var i = 0; i < imgs.length; i++) {
-        var x = console.log(imgs[i].desc);
-        var hexId = imgs[i].id;
+
+    
+    var numOfEls = imgs.length;
+    var widthOfEl = 180;
+    var maxElPerRow = getMaxElPerRow(widthOfEl);
+    console.log('max num of els:' + maxElPerRow);
+    var numOfRows = getNumOfRows(numOfEls, maxElPerRow);
+    console.log('num of rows:' + numOfRows);
+    var rows = [];
+    for (var i = 0; i < numOfRows; i++) {
+        var row = {rowStrHtml: `<div id="row-id-${i}" class="img-row">`, rowIdx: i, imgsInRow: 0};
+        rows.push(row);
+    }
+    var currRowIdx = 0;
+    var currRow = rows[currRowIdx];
+    imgs.forEach(function (img, idx) {
+        if (isRowFull(currRow, maxElPerRow)) {
+            //close prev row div
+            currRow.rowStrHtml += '</div>'
+            currRowIdx++
+            currRow = rows[currRowIdx];
+            //if row is even add a empty div that will shift other divs right
+            if (currRow.rowIdx % 2 === 0) currRow.rowStrHtml += `<div class="empty-div">testemptydiv</div>`
+        }
+
+        if (idx === 0) currRow.rowStrHtml += `<div class="empty-div">testemptydiv</div>`
+        var strHtml = '';
+        var hexId = imgs[idx].id;
         strHtml += `<svg class="thumbs" viewBox="0 0 100 100"><defs>`;
         strHtml += `<pattern id="${hexId}" patternUnits="userSpaceOnUse" width="100" height="100">`;
-        strHtml += `<image xlink:href="${imgs[i].url}" x="-25" width="150" height="100" />`;
+        strHtml += `<image xlink:href="${imgs[idx].url}" x="-25" width="150" height="100" />`;
         strHtml += `</pattern></defs>`;
         strHtml += `<polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#${hexId})" onclick="displayMemeEditor(${hexId})"/>`;
         strHtml += `</svg>`;
-    }
-    gElImgBoard.innerHTML = strHtml;
+        currRow.rowStrHtml += strHtml;
+        currRow.imgsInRow++
+        //close last row div when after the last img
+        if (idx === imgs.length -1) currRow.rowStrHtml += '</div>'
+    });
+
+    var innerContHtmlStr = '';
+    rows.forEach(function (row){
+        innerContHtmlStr += row.rowStrHtml;
+    });
+    gElImgBoard.innerHTML = innerContHtmlStr;
 }
+
+
+function isRowFull(row, maxElPerRow) {
+    if ((row.rowIdx % 2 === 0) && ((row.imgsInRow === maxElPerRow -1) || maxElPerRow === 1) )      return true;
+    else if ((row.rowIdx % 2 !== 0) && (row.imgsInRow === maxElPerRow) )    return true;
+    else                                                                    return false;
+}
+
+function getMaxElPerRow(widthOfEl) {
+    var rowWidth = gElImgBoard.offsetWidth;
+
+    return Math.floor(rowWidth / widthOfEl);
+}
+
+function getNumOfRows(numOfEls, maxElPerRow) {
+    var numOfRows = numOfEls / (maxElPerRow - 0.5);
+    if (numOfRows > 1)    return Math.ceil(numOfRows);
+    else                  return 1;
+}
+
+
+
 
 function displayMemeEditor(imageId) {
     var elSearchCont = document.querySelector('.search-container');
