@@ -6,18 +6,17 @@ function init() {
     gElEditContainer = document.querySelector('.edit-container');
     gElMemeCanvas = document.querySelector('#memeCanvas');
     gElTextInput = document.querySelector('.text-input');
-    // gElSearchByTag = document.querySelector('#search-by-tag');
     gElTagFilter = document.querySelector('.tag-filter-wrapper');
     gState = {
         txts: [
             {
                 txt: '',
-                fontSize: 46,
+                fontSize: 56,
                 color: 'blue',
                 fontFamily: 'serif',
                 textAlign: 'center',
                 textStartPointW: gElMemeCanvas.width / 2,
-                textStartPointH: 30
+                textStartPointH: 50
             }
         ]
     };
@@ -31,12 +30,12 @@ function addTxt() {
     gState.txts.push(
         {
             txt: '',
-            fontSize: 26,
-            color: 'black',
+            fontSize: 56,
+            color: 'blue',
             fontFamily: 'serif',
             textAlign: 'center',
             textStartPointW: gElMemeCanvas.width / 2,
-            textStartPointH: 30
+            textStartPointH: (gState.txts[gState.txts.length-1].textStartPointH+50)
         }
     );
     renderTxtEditors();
@@ -61,7 +60,7 @@ function renderTxtEditors() {
                 </select>
                 <button onclick="fontSizeChange(${i}, 1)"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
                 <button onclick="fontSizeChange(${i}, 0)"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
-                <input class="color-picker" oninput="changeColor(this, ${i})" type="color">
+                <input class="color-picker" value="#0000ff" oninput="changeColor(this, ${i})" type="color">
                 <div class="text-align">
                     <button onclick="txtAlign(${i}, 'left')"><i class="fa fa-align-left" aria-hidden="true"></i></button>
                     <button onclick="txtAlign(${i}, 'center')"><i class="fa fa-align-center" aria-hidden="true"></i></button>
@@ -89,9 +88,9 @@ function renderImgs(imgs) {
     var widthOfEl = 180;
     var emptyDivHtmlStr = `<div class="empty-div" style="width: ${widthOfEl / 2}px;"></div>`
     var maxElPerRow = getMaxElPerRow(widthOfEl);
-    console.log('max num of els:' + maxElPerRow);
+    // console.log('max num of els:' + maxElPerRow);
     var numOfRows = getNumOfRows(numOfEls, maxElPerRow);
-    console.log('num of rows:' + numOfRows);
+    // console.log('num of rows:' + numOfRows);
     var rows = [];
     for (var i = 0; i < numOfRows; i++) {
         var row = { rowStrHtml: `<div id="row-id-${i}" class="img-row" style="position: relative; top: ${-34 * i}px;">`, rowIdx: i, imgsInRow: 0 };
@@ -157,6 +156,7 @@ function getNumOfRows(numOfEls, maxElPerRow) {
 
 
 function displayMemeEditor(imageId) {
+    window.scrollTo(0, document.querySelector('.edit-container').offsetTop);
     var elNavContAndPointer = document.querySelector('.nav-and-pointer');
     var elSearchCont = document.querySelector('.search-container');
     var elImgsCont = document.querySelector('.imgs-container');
@@ -268,18 +268,6 @@ function saveImage() {
     window.location.href = gElMemeCanvas.toDataURL();
 }
 
-// function createTagIdx () {
-//     var tagIdx = [{keywords: '', numberOfAppearances:''}];
-//     // gImgBank.forEach()
-//     tagIdx = { };
-//     for(var i = 0; i < gImgBank.length; i++) {
-//         for(var j=0;j< gImgBank[i].keywords.length; j++) {
-//             if(!tagIdx[gImgBank[i].keywords[j]]) tagIdx[gImgBank[i].keywords[j]] = tagIdx[gImgBank[i]];
-//             else                                 tagIdx[gImgBank[i].keywords[j]].push(tagIdx[gImgBank[i]]);
-//             }
-//         }
-// }
-
 function createTagIdx() {
     var tagIdx = {};
     var tagIdxs = [];
@@ -306,7 +294,6 @@ function addTagToInput(tag) {
     })) {
         gTags.push(tag.innerHTML);
         filterByTag();
-        // gElSearchByTag.value += tag.innerHTML + ' ';
     } else console.log('already exists');
     var searchStr = '';
 }
@@ -340,7 +327,6 @@ function filterByTag() {
 function renderTags() {
     var strHtml = '';
     for (var i = 0; i < gTags.length; i++) {
-        // var tagId = gTags[i];
         strHtml += `<div class="tag-filter filter-${i}">`;
         strHtml += `<div class="tag-text">${gTags[i]}</div>`;
         strHtml += `<span class="close-tag filter-${i}" onclick="closeFilter('${i}')"></span></div>`;
