@@ -2,6 +2,7 @@ button {
     border-radius: 5px;
     background-color: darkgray;
     font-family: var(--secondary-font);
+    cursor: pointer;
 }
 
 canvas {
@@ -33,9 +34,12 @@ canvas {
             margin: 2px 0;
             font-size: 20px;
     }
-
+    .add-txt {
+        width: 120px;
+        font-size: 15px;
+    }
     .add-props {
-    background-image: url(../assets/img/props.jpg);
+    background-image: url(../assets/img/props.png);
     background-size: contain;
     background-position: center;
   

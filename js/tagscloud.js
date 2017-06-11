@@ -122,7 +122,7 @@ function createTagsCloud(tagsIdx) {
                 .style("-moz-user-select", "none")
                 .style("-ms-user-select", "none")
                 .style("user-select", "none")
-                .style("cursor", "default")
+                .style("cursor", "pointer")
                 .style("font-family", "Impact")
                 .style("fill", function (d, i) {
                     return fill(i);

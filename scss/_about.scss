@@ -17,8 +17,10 @@
     .inner-about-us {
         height: 100%;
         display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
+
+        justify-content: space-between;
+        align-items: stretch;
+
         h3 {
             font-size: 2rem;
             color: rgba(255,255,0,1);
@@ -27,11 +29,17 @@
             text-shadow: 5px 5px 0 rgba(255,0,0,1) 
         }
         .gk {
+            display: flex;
+            flex-direction: column;            
+            justify-content: space-between;
             height: 100%;
-            margin-right: 10px;
+            width: 47%;
         }
-        .gal {
-            height: 100%;
+        .galz {
+            display: flex;
+            flex-direction: column;            
+            justify-content: space-between;
+            width: 47%;            
         }
     }
 }
