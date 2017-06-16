@@ -12,11 +12,12 @@ function init() {
             {
                 txt: '',
                 fontSize: 56,
-                color: 'blue',
+                color: '#0000FF',
                 fontFamily: 'serif',
                 textAlign: 'center',
                 textStartPointW: gElMemeCanvas.width / 2,
-                textStartPointH: 50
+                textStartPointH: 50,
+                moveText: 'disabled'
             }
         ]
     };
@@ -27,58 +28,59 @@ function init() {
 }
 
 function addTxt() {
+
     gState.txts.push(
         {
             txt: '',
             fontSize: 56,
-            color: 'blue',
+            color: '#0000FF',
             fontFamily: 'serif',
             textAlign: 'center',
             textStartPointW: gElMemeCanvas.width / 2,
-            textStartPointH: (gState.txts[gState.txts.length-1].textStartPointH+50)
+            textStartPointH: (gState.txts[gState.txts.length - 1].textStartPointH + 50),
+            moveText: 'disabled'
         }
     );
     renderTxtEditors();
+
 }
 
-function renderTxtEditors() {
-
+function renderTxtEditors(idx = null) {
+    var newCl;
     var strHtml = '';
     for (var i = 0; i < gState.txts.length; i++) {
-
+        if (i !== idx) {
+            gState.txts[i].moveText = 'disabled';
+            newCl = '' 
+        }   else newCl = 'arrow-pressed';
         strHtml += ` 
         <div class="text-editor">
           <div class="edit-buttons">
           
             <div class="text-and-fonts">
                 <input type="text" id="top-text:${i}" value="${gState.txts[i].txt}" placeholder="Enter text here" oninput="updateTxts(this, ${i})">
+                <button class="arrows arrow${i} ${newCl}" onclick="moveText(${i})"><i class="fa fa-arrows" aria-hidden="true"></i></button>                
                 <button onclick="deleteText('top-text:${i}', ${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 <select oninput="changeFont(this, ${i})">
+                    <option selected>${gState.txts[i].fontFamily}</option>
                     <option value="sans">Sans</option>
                     <option value="Arial">Arial</option>
                     <option value="AvantGarde">Avant Garde</option>
                 </select>
                 <button onclick="fontSizeChange(${i}, 1)"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
                 <button onclick="fontSizeChange(${i}, 0)"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
-                <input class="color-picker" value="#0000ff" oninput="changeColor(this, ${i})" type="color">
+                <input class="color-picker" value="${gState.txts[i].color}" oninput="changeColor(this, ${i})" type="color">
                 <div class="text-align">
                     <button onclick="txtAlign(${i}, 'left')"><i class="fa fa-align-left" aria-hidden="true"></i></button>
                     <button onclick="txtAlign(${i}, 'center')"><i class="fa fa-align-center" aria-hidden="true"></i></button>
                     <button onclick="txtAlign(${i}, 'right')"><i class="fa fa-align-right" aria-hidden="true"></i></button>
                 </div>
             </div>
-             <div class="arrows">
-                <button onclick="moveText(${i}, 'up')"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
-                <button onclick="moveText(${i}, 'left')"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                <button onclick="moveText(${i}, 'down')"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
-                <button onclick="moveText(${i}, 'right')"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-            </div>
           </div>
         </div>`
     }
     var elEditArea = document.querySelector('.canvas-edit-area');
     elEditArea.innerHTML = strHtml;
-
 }
 
 
@@ -211,8 +213,8 @@ function fontSizeChange(idx, sizeChange) {
 
 
 function deleteText(inputId, idx) {
-    document.getElementById(`${inputId}`).value = '';
-    gState.txts[idx].txt = '';
+    gState.txts.splice(idx,1);
+    renderTxtEditors();
     drawCanvasWithText();
 }
 
@@ -239,24 +241,43 @@ function txtAlign(idx, alignInput) {
     drawCanvasWithText();
 }
 
-function moveText(idx, direction) {
-    var moveSize = 5;
-    switch (direction) {
-        case 'right':
-            gState.txts[idx].textStartPointW += moveSize
-            break;
-        case 'left':
-            gState.txts[idx].textStartPointW -= moveSize
-            break;
-        case 'up':
-            gState.txts[idx].textStartPointH -= moveSize
-            break;
-        case 'down':
-            gState.txts[idx].textStartPointH += moveSize
-            break;
+function moveText(idx) {
+    gElArrowBtn = document.querySelector(`.arrow${idx}`);
+    if (gState.txts[idx].moveText === 'disabled') {
+        gState.txts[idx].moveText = 'enabled';
+        gElArrowBtn.classList.add('arrow-pressed');
+        renderTxtEditors(idx);
+    } else {
+        gState.txts[idx].moveText = 'disabled';
+        gElArrowBtn.classList.remove('arrow-pressed');        
     }
-
-    drawCanvasWithText();
+    console.log('press the keyboard arrow keys the align text')
+    document.onkeydown = function (e) {
+        if (gState.txts[idx].moveText === 'disabled') {
+            return;
+        }
+        var moveSize = 5;
+        switch (e.keyCode) {
+            case 39:
+                e.preventDefault();
+                gState.txts[idx].textStartPointW += moveSize;
+                break;
+            case 37:
+                e.preventDefault();
+                gState.txts[idx].textStartPointW -= moveSize;
+                break;
+            case 38:
+                e.preventDefault();
+                gState.txts[idx].textStartPointH -= moveSize;
+                break;
+            case 40:
+                e.preventDefault();
+                gState.txts[idx].textStartPointH += moveSize;
+                break;
+            default: break;
+        }
+        drawCanvasWithText();
+    }
 }
 
 function changeFont(elInput, idx) {

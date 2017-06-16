@@ -31,133 +31,129 @@
     </div>
 
     <div class="search-container">
-      <div class="search-img">
+      <div class="search-img"><span>Use the following keywords to search memes.</span>
         <div class="tag-filter-wrapper">
-            <span class="close-tag"></span></div>
-        </div>
-        <div id="cloud"></div>
+          <span class="close-tag"></span></div>
+      </div>
+      <div id="cloud"></div>
+    </div>
+  </div>
+  <main>
+    <div class="imgs-container">
+      <div class="inner-imgs-container">
       </div>
     </div>
-    <main>
-      <div class="imgs-container">
-        <div class="inner-imgs-container">
-        </div>
-      </div>
 
 
 
 
-      <div class="edit-container">
-        <canvas id="memeCanvas" width=500 height=500>Your browser does not support the HTML5 canvas tag.</canvas>
-        <section class="add-txt-or-props">
-          <button onclick="addTxt()" class="add-txt"><i class="fa fa-plus-circle" aria-hidden="true">Add more text</i></button>
-          <button onclick="saveImage()" class="saveMeme"></button>
-          <button class="add-props"></button>
-
-        </section>
-        <section class="canvas-edit-area">
-        </section>
-        <section class="edit-area-nav">
-
-
-
-
-        </section>
-
-      </div>
-
-
-
-    </main>
-
-    <section id="about-us" class="about-us">
-      <h2>About Us</h2>
-      <div class="inner-about-us">
-        <div class="gk">
-          <h1>Guy Kedar</h1>
-          <h3>Front-end Developer wannabe</h3>
-          <img class="img_us" src="assets/icons/about.png" alt="Guy Kedar">
-          <p>Girl what you sayin? That all of the life in the universe happens to be where you stand? I guess What an enormous
-            coincidence that shit would be Do you see what I'm sayin'? I can't hear what you're sayin' Well the universe
-            always expanding There are infinite galaxies Why would we be the anomaly? She like that's no coincidence I call
-            that shit God I'm like oh you're religious, bitch </p>
-          <div class="about_links">
-            <a target="_blank" href="">
-              <p class="fa fa-facebook-official fa-2x" aria-hidden="true"></p>
-            </a>
-            <a target="_blank" href="">
-              <p class="fa fa-linkedin-square fa-2x" aria-hidden="true"></p>
-            </a>
-            <a target="_blank" href="https://github.com/kedarguy/">
-              <p class="fa fa-github-square fa-2x" aria-hidden="true"></p>
-            </a>
-          </div>
-        </div>
-        <div class="galz">
-          <h1>gALz</h1>
-          <h3>Front-end Developer wannabe</h3>
-          <img class="img_us" src="assets/icons/about.png" alt="Mark Fridman">
-          <p>Just because we're not running around with a bow and arrow Doesn't mean we're not hunting these chickens We just
-            decided the place to do our hunting intelligently enough To manipulate these animals and get them to do exactly
-            what we want That's my point we just incubate animals Instead of just letting them live how they come But, that's
-            just your God at work bitch. </p>
-          <div class="about_links">
-            <a target="_blank" href="">
-              <p class="fa fa-facebook-official fa-2x" aria-hidden="true"></p>
-            </a>
-            <a target="_blank" href="">
-              <p class="fa fa-linkedin-square fa-2x" aria-hidden="true"></p>
-            </a>
-            <a target="_blank" href="https://github.com/galzunited/">
-              <p class="fa fa-github-square fa-2x" aria-hidden="true"></p>
-            </a>
-
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-
-    <section id="contact" class="contact-info">
-      <div class="inner-contact-info">
-        <h4>Get In Touch</h4>
-        <p>In order to get in touch use the contact from below and Ilan will get back to you shortley</p>
-        <div class="contact-body">
-          <form class="contact-form" id="contact-form" onsubmit="contactForm(event)">
-            <input type="text" id="name" name="name" placeholder="Name (required)" required/>
-            <input type="email" id="email" name="email" placeholder="Email (required)" />
-            <input type="subject" id="subject" name="subject" placeholder="Subject" />
-            <input type="message" id="message" name="message" placeholder="Write you messege here..." />
-            <input type="submit" value="Send" id="submit">
-          </form>
-          <aside class=contact-info>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-            <br>
-            <br>
-            <p>blah blah blah blah </p>
-            <div class="address">
-              <img class="ImgAddress" src="assets/icons/location.png"> Elm St. 14/05 Lost City <br>
-              <img class="ImgAddress" src="assets/icons/phone.png"> + 3528 331 86 35 <br>
-              <img class="ImgAddress" src="assets/icons/mail.png"> info@hexalcorp.com
-            </div>
-          </aside>
-
-        </div>
-
-    </section>
-
+    <div class="edit-container">
+      <canvas id="memeCanvas" width=500 height=500>Your browser does not support the HTML5 canvas tag.</canvas>
+      </section>
+      <section class="canvas-edit-area">
+      </section>
+      </br>
+      <section class="add-txt-or-props">
+        <button onclick="saveImage()" class="saveMeme"></button>        
+        <button onclick="addTxt()" class="add-txt"><i class="fa fa-plus-circle" aria-hidden="true">Add more text</i></button>
+        <button class="add-props"></button>
+        <!--<section class="edit-area-nav">
+        </section>-->
 
     </div>
-    <script src="js/vars.js"></script>
-    <script src="js/main.js"></script>
-    <script src="assets/lib/d3.min.js"></script>
-    <script src="assets/lib/d3.layout.cloud.js"></script>
-    <script src="assets/lib/lodash.min.js"></script>
-    <script src="js/tagscloud.js"></script>
-    <footer>
-      © gALz & GK
-    </footer>
+
+
+
+  </main>
+
+  <section id="about-us" class="about-us">
+    <h2>About Us</h2>
+    <div class="inner-about-us">
+      <div class="gk">
+        <h1>Guy Kedar</h1>
+        <h3>Front-end Developer wannabe</h3>
+        <img class="img_us" src="assets/icons/about.png" alt="Guy Kedar">
+        <p>Girl what you sayin? That all of the life in the universe happens to be where you stand? I guess What an enormous
+          coincidence that shit would be Do you see what I'm sayin'? I can't hear what you're sayin' Well the universe always
+          expanding There are infinite galaxies Why would we be the anomaly? She like that's no coincidence I call that shit
+          God I'm like oh you're religious, bitch </p>
+        <div class="about_links">
+          <a target="_blank" href="">
+            <p class="fa fa-facebook-official fa-2x" aria-hidden="true"></p>
+          </a>
+          <a target="_blank" href="">
+            <p class="fa fa-linkedin-square fa-2x" aria-hidden="true"></p>
+          </a>
+          <a target="_blank" href="https://github.com/kedarguy/">
+            <p class="fa fa-github-square fa-2x" aria-hidden="true"></p>
+          </a>
+        </div>
+      </div>
+      <div class="galz">
+        <h1>gALz</h1>
+        <h3>Front-end Developer wannabe</h3>
+        <img class="img_us" src="assets/icons/about.png" alt="Mark Fridman">
+        <p>Just because we're not running around with a bow and arrow Doesn't mean we're not hunting these chickens We just
+          decided the place to do our hunting intelligently enough To manipulate these animals and get them to do exactly
+          what we want That's my point we just incubate animals Instead of just letting them live how they come But, that's
+          just your God at work bitch. </p>
+        <div class="about_links">
+          <a target="_blank" href="">
+            <p class="fa fa-facebook-official fa-2x" aria-hidden="true"></p>
+          </a>
+          <a target="_blank" href="">
+            <p class="fa fa-linkedin-square fa-2x" aria-hidden="true"></p>
+          </a>
+          <a target="_blank" href="https://github.com/galzunited/">
+            <p class="fa fa-github-square fa-2x" aria-hidden="true"></p>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section id="contact" class="contact-info">
+    <div class="inner-contact-info">
+      <h4>Get In Touch</h4>
+      <p>In order to get in touch use the contact from below and Ilan will get back to you shortley</p>
+      <div class="contact-body">
+        <form class="contact-form" id="contact-form" onsubmit="contactForm(event)">
+          <input type="text" id="name" name="name" placeholder="Name (required)" required/>
+          <input type="email" id="email" name="email" placeholder="Email (required)" />
+          <input type="subject" id="subject" name="subject" placeholder="Subject" />
+          <input type="message" id="message" name="message" placeholder="Write you messege here..." />
+          <input type="submit" value="Send" id="submit">
+        </form>
+        <aside class=contact-info>
+          <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+          <br>
+          <br>
+          <p>blah blah blah blah </p>
+          <div class="address">
+            <img class="ImgAddress" src="assets/icons/location.png"> Elm St. 14/05 Lost City <br>
+            <img class="ImgAddress" src="assets/icons/phone.png"> + 3528 331 86 35 <br>
+            <img class="ImgAddress" src="assets/icons/mail.png"> info@hexalcorp.com
+          </div>
+        </aside>
+
+      </div>
+
+  </section>
+
+
+  </div>
+  <script src="js/vars.js"></script>
+  <script src="js/main.js"></script>
+  <script src="assets/lib/d3.min.js"></script>
+  <script src="assets/lib/d3.layout.cloud.js"></script>
+  <script src="assets/lib/lodash.min.js"></script>
+  <script src="js/tagscloud.js"></script>
+  <footer>
+    <span>© gALz & GK</span>
+  </footer>
 </body>
 
 </html>

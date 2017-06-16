@@ -42,3 +42,4 @@ var gElMemeCanvas;
 var gElTextInput;
 var gState;
 var gElTagFilter;
+var gElArrowBtn;
