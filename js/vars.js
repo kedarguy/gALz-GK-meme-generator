@@ -43,3 +43,4 @@ var gElTextInput;
 var gState;
 var gElTagFilter;
 var gElArrowBtn;
+var gElSearchCont;

@@ -549,6 +549,7 @@ li {
 .hide-nav-and-pointer {
   position: relative;
   top: -40px;
+  margin-top: -40px;
   -webkit-transition: all 0.5s ease; }
 
 .nav-and-pointer {
@@ -556,6 +557,7 @@ li {
 
 .nav-and-pointer:hover {
   top: 0px;
+  margin-top: 0px;
   -webkit-transition: all 0.5s ease; }
 
 main {
@@ -725,8 +727,7 @@ canvas {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  width: 100vw; }
+  align-items: center; }
   .add-txt-or-props button {
     height: 40px;
     width: 40px;
@@ -827,10 +828,11 @@ canvas {
     box-sizing: content-box;
     cursor: pointer;
     text-align: center;
+    vertical-align: center;
     border: none;
     -webkit-border-radius: 20px;
     border-radius: 20px;
-    font: normal normal bold 20px/40px "Baumans", Helvetica, sans-serif;
+    font: normal normal bold 18px/30px "Baumans", Helvetica, sans-serif;
     color: black;
     text-overflow: clip;
     background: #dddddd;
@@ -839,10 +841,8 @@ canvas {
     text-shadow: 0 1px 0 #FFFFFF;
     overflow: hidden;
     position: relative;
-    min-width: 20%;
-    height: 100%;
-    padding: 4px 8px;
-    margin: 3px; }
+    min-width: 16%;
+    margin: 5px; }
     .tag-filter-wrapper .tag-filter:hover {
       background: #FFFFFF; }
     .tag-filter-wrapper .tag-filter .tag-text {

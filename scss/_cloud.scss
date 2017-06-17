@@ -19,7 +19,6 @@
     justify-content: center;
     align-items: center;
     
-    
         .tag-filter {
          
             display: inline-block;
@@ -28,10 +27,11 @@
             box-sizing: content-box;
             cursor: pointer;
             text-align: center;
+            vertical-align: center;
             border: none;
             -webkit-border-radius: 20px;
             border-radius: 20px;
-            font: normal normal bold 20px/40px "Baumans", Helvetica, sans-serif;
+            font: normal normal bold 18px/30px "Baumans", Helvetica, sans-serif;
             color: black;
             text-overflow: clip;
             background: rgb(221, 221, 221);
@@ -40,10 +40,8 @@
             text-shadow: 0 1px 0 #FFFFFF ;
             overflow: hidden;
             position: relative;            
-            min-width: 20%;
-            height: 100%;
-            padding: 4px 8px;
-            margin: 3px;
+            min-width: 16%;
+            margin: 5px;
 
             &:hover {
                 background: #FFFFFF;

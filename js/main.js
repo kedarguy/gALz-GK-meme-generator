@@ -7,6 +7,8 @@ function init() {
     gElMemeCanvas = document.querySelector('#memeCanvas');
     gElTextInput = document.querySelector('.text-input');
     gElTagFilter = document.querySelector('.tag-filter-wrapper');
+    gElSearchCont = document.querySelector('.search-container');
+    gElSearchCont.style.display = 'none';
     gState = {
         txts: [
             {
@@ -21,10 +23,14 @@ function init() {
             }
         ]
     };
-    createTagIdx();
     renderImgs(gImgBank);
     window.addEventListener('resize', filterByTag);
-
+        setTimeout(function() {
+        gElSearchCont.style.display = 'block';
+        var elNavContAndPointer = document.querySelector('.nav-and-pointer');
+        elNavContAndPointer.classList.add("hide-nav-and-pointer");
+        createTagIdx();
+    }, 1000);
 }
 
 function addTxt() {
@@ -51,8 +57,8 @@ function renderTxtEditors(idx = null) {
     for (var i = 0; i < gState.txts.length; i++) {
         if (i !== idx) {
             gState.txts[i].moveText = 'disabled';
-            newCl = '' 
-        }   else newCl = 'arrow-pressed';
+            newCl = ''
+        } else newCl = 'arrow-pressed';
         strHtml += ` 
         <div class="text-editor">
           <div class="edit-buttons">
@@ -130,6 +136,7 @@ function renderImgs(imgs) {
         innerContHtmlStr += row.rowStrHtml;
     });
     gElImgBoard.innerHTML = innerContHtmlStr;
+    animateIn();
 }
 
 
@@ -158,19 +165,19 @@ function getNumOfRows(numOfEls, maxElPerRow) {
 
 
 function displayMemeEditor(imageId) {
-    window.scrollTo(0, document.querySelector('.edit-container').offsetTop);
-    var elNavContAndPointer = document.querySelector('.nav-and-pointer');
-    var elSearchCont = document.querySelector('.search-container');
-    var elImgsCont = document.querySelector('.imgs-container');
-    elNavContAndPointer.classList.add("hide-nav-and-pointer");
-    elImgsCont.style.display = 'none';
-    gElImgBoard.style.display = 'none';
-    elSearchCont.style.display = 'none';
-    gElEditContainer.style.display = 'flex';
-    gState.selectedImgId = imageId;
-    drawCanvas();
-    renderTxtEditors();
-
+    animateOut();
+    setTimeout(function () {
+        animateCanvas();
+        window.scrollTo(0, document.querySelector('.edit-container').offsetTop);
+        var elImgsCont = document.querySelector('.imgs-container');
+        elImgsCont.style.display = 'none';
+        gElImgBoard.style.display = 'none';
+        gElSearchCont.style.display = 'none';
+        gElEditContainer.style.display = 'flex';
+        gState.selectedImgId = imageId;
+        drawCanvas();
+        renderTxtEditors();
+    }, 1000)
 }
 
 function drawCanvas() {
@@ -213,7 +220,7 @@ function fontSizeChange(idx, sizeChange) {
 
 
 function deleteText(inputId, idx) {
-    gState.txts.splice(idx,1);
+    gState.txts.splice(idx, 1);
     renderTxtEditors();
     drawCanvasWithText();
 }
@@ -249,7 +256,7 @@ function moveText(idx) {
         renderTxtEditors(idx);
     } else {
         gState.txts[idx].moveText = 'disabled';
-        gElArrowBtn.classList.remove('arrow-pressed');        
+        gElArrowBtn.classList.remove('arrow-pressed');
     }
     console.log('press the keyboard arrow keys the align text')
     document.onkeydown = function (e) {

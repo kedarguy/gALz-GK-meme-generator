@@ -26,7 +26,7 @@ function createTagsCloud(tagsIdx) {
     var maxfont = 35;
 
     var width = 800;
-    var height = 400;
+    var height = 300;
 
     var fill = d3.scale.category20();
 
